@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta name=viewport content=“width=800”>
+  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+  <style type="text/css">
+    /* Color scheme stolen from Sergey Karayev */
+    a {
+    color: #1772d0;
+    text-decoration:none;
+    }
+    a:focus, a:hover {
+    color: #f09228;
+    text-decoration:none;
+    }
+    body,td,th,tr,p,a {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 14px
+    }
+    strong {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    }
+    heading {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 22px;
+    }
+    papertitle {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 700
+    }
+    name {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 32px;
+    }
+    .one
+    {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    }
+    .two
+    {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    transition: opacity .2s ease-in-out;
+    -moz-transition: opacity .2s ease-in-out;
+    -webkit-transition: opacity .2s ease-in-out;
+    }
+    .fade {
+     transition: opacity .2s ease-in-out;
+     -moz-transition: opacity .2s ease-in-out;
+     -webkit-transition: opacity .2s ease-in-out;
+    }
+    span.highlight {
+        background-color: #ffffd0;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="olehrybkin.JPG">
+  <title>Oleh Rybkin</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116311994-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116311994-1');
+  </script>
+  </head>
+  <body>
+  <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
+    <tr>
+    <td>
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+      <tr>
+        <td width="67%" valign="middle">
+        <p align="center">
+          <name>Oleh Rybkin</name>
+        </p>
+        <p>I am a Ph.D. student in the <a href="https://www.grasp.upenn.edu/">GRASP laboratory</a> at the University of Pennsylvania, where I work on computer vision and deep learning with <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>.
+        </p>
+        <p>
+          Previously, I received my bachelor's degree from <a href="https://www.cvut.cz/en">Czech Technical University in Prague</a>, where I was advised by <a href="http://people.ciirc.cvut.cz/~pajdla/">Tomas Pajdla</a>. I've spent two summers at <a href="https://www.di.ens.fr/willow/">INRIA</a> and <a href="https://www.titech.ac.jp/english/">TiTech</a>, with  <a href="http://www.di.ens.fr/~josef/">Josef Sivic</a> and  <a href="http://www.ok.ctrl.titech.ac.jp/~torii/">Akihiko Torii</a> respectively.
+        </p>
+        <p align=center>
+          <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=CQEyVPMAAAAJ">Google Scholar</a> &nbsp/&nbsp
+          <a href="https://github.com/orybkin">GitHub</a> &nbsp/&nbsp
+            <a href="mailto:oleh@seas.upenn.edu">Email</a> &nbsp/&nbsp
+          <a href="olehrybkin-CV.pdf">CV</a> &nbsp/&nbsp
+          <a href="https://www.linkedin.com/in/oleh-rybkin/"> LinkedIn </a>
+        </p>
+        </td>
+        <td width="33%">
+        <img src="olehrybkin.png">
+        </td>
+      </tr>
+      </table>
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+      <tr>
+        <td width="100%" valign="middle">
+          <heading>Research</heading>
+          <p>
+          I am broadly interested in artificial intelligence, computer vision, and cognitive robotics. Recently, I've been working on machine understanding of <a href="https://daniilidis-group.github.io/transformational_states/">motion</a> and <a href ="https://daniilidis-group.github.io/sensorimotor_affordances/">intuitive physics</a>, with the ultimate goal of application to real-world robotic manipulation.  During my bachelor's, I also worked on <a href="https://github.com/orybkin/Bachelor-Thesis">camera geometry</a> for structure from motion.
+          </p>
+        </td>
+      </tr>
+      </table>
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+      <tr  onmouseout="sensorimotor_stop()" onmouseover="sensorimotor_start()">
+        <td width="25%">
+          <div class="one">
+          <div class="two" id = 'sensorimotor_image'><img src='sensorimotor_after.gif' width="160" height="160"></div>
+          <img src='sensorimotor_before.png' width="160" height="160">
+          </div>
+          <script type="text/javascript">
+          function sensorimotor_start() {
+          document.getElementById('sensorimotor_image').style.opacity = "1";
+          }
+          function sensorimotor_stop() {
+          document.getElementById('sensorimotor_image').style.opacity = "0";
+          }
+          sensorimotor_stop()
+          </script>
+        </td>
+        <td width="75%" valign="top">
+        <p>
+        <p>
+          <papertitle>Unsupervised Learning of Sensorimotor Affordances by Stochastic Future Prediction</papertitle>
+          <br>
+          <strong>Oleh Rybkin</strong>*, <a href="https://kpertsch.github.io/">Karl Pertsch</a>*, <a href="http://www.drewjaegle.com/">Andrew Jaegle</a>,  <a href="http://www.scs.ryerson.ca/kosta/">Kosta Derpanis</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a><br>
+          <i>ArXiv</i>, 2018<br>
+          <a href ="https://daniilidis-group.github.io/sensorimotor_affordances/">project page</a> / <a href ="https://arxiv.org/abs/1806.09655">arXiv</a>  /
+          <a href ="sensorimotor_poster.pdf">poster</a>
+          <br>
+        </p>
+        <p> The method learns possible actions that an environment admits from pure video data. This can be used e.g. to transplant a trajectory of actions from one video into another.</p>
+        <p>
+        <i> Hover the mouse (or tap the screen) here to see the video.</i></p>
+        </p>
+        </td>
+      </tr>
+      <tr onmouseout="transformational_stop()" onmouseover="transformational_start()" >
+        <td width="25%">
+          <div class="one">
+          <div class="two" id = 'transformational_image'><img src='transformational_after.gif' width="160" height="160"></div>
+          <img src='transformational_before.png' width="160" height="160">
+          </div>
+          <script type="text/javascript">
+          function transformational_start() {
+          document.getElementById('transformational_image').style.opacity = "1";
+          }
+          function transformational_stop() {
+          document.getElementById('transformational_image').style.opacity = "0";
+          }
+          transformational_stop()
+          </script>
+        </td>
+        <td width="75%" valign="top">
+        <p>
+        <p>
+          <a href="https://arxiv.org/abs/1803.09760">
+          <papertitle>Predicting the Future with Transformational States</papertitle>
+          </a>
+          <br>
+          <a href="http://www.drewjaegle.com/">Andrew Jaegle</a>, <strong>Oleh Rybkin</strong>, <a href="http://www.scs.ryerson.ca/kosta/">Kosta Derpanis</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a><br>
+          <em>ArXiv</em>, 2018<br>
+          <a href ="        https://daniilidis-group.github.io/transformational_states/">project page</a> /
+          <a href ="https://arxiv.org/abs/1803.09760">arXiv</a>
+        </p>
+        <p>The model predicts future video frames by learning to represent the present state of a system together with a high-level transformation that is used to produce its future state.</p>
+        <p>
+        <i> Hover the mouse (or tap the screen) here to see the video.</i></p>
+        </td>
+      </tr>
+      </table>
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+      <tr>
+        <td>
+        <heading>Blog</heading>
+        </td>
+      </tr>
+      </table>
+      <table width="100%" align="center" border="0" cellpadding="20">
+          <tr onmouseout="pixel_metrics_stop()" onmouseover="pixel_metrics_start()" >
+            <td width="25%">
+              <div class="one">
+              <div class="two" id = 'pixel_metrics_image'><img src='pixel_metrics_after.gif' width="160" height="160"></div>
+              <img src='pixel_metrics_before.png' width="160" height="160">
+              </div>
+              <script type="text/javascript">
+              function pixel_metrics_start() {
+              document.getElementById('pixel_metrics_image').style.opacity = "1";
+              }
+              function pixel_metrics_stop() {
+              document.getElementById('pixel_metrics_image').style.opacity = "0";
+              }
+              pixel_metrics_stop()
+              </script>
+        <td width="75%" valign="top">
+        <p>
+          <a href="https://medium.com/@olegrybkin_20684/the-reasonable-ineffectiveness-of-mse-pixel-loss-for-future-prediction-and-what-to-do-about-it-4dca8152355d">
+          <papertitle>The reasonable ineffectiveness of pixel metrics for future prediction</papertitle>
+        </a> </br>
+          2018
+        <p>
+          MSE loss and its variants are commonly used for training and evaluation of future prediction. But is this the right thing to do?
+        </p>
+        <i> Hover the mouse (or tap the screen) here to see the video.</i>
+        </p>
+        </td>
+      </tr>
+      </table>
+
+
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+      <tr>
+        <td>
+        <br>
+        <p align="right">
+          <font size="2">
+          <a href="https://jonbarron.info/"><strong>This guy has a cool website</strong></a>
+	    </font>
+        </p>
+        </td>
+      </tr>
+      </table>
+    </td>
+    </tr>
+  </table>
+  </body>
+</html>
