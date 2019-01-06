@@ -1,2 +1,2 @@
 # website
-my personal website
+My personal website. Template taken from John Barron
