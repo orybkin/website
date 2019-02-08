@@ -131,7 +131,7 @@
         <td width="100%" valign="middle">
           <heading>Research</heading>
           <p>
-            My general interest is in creating neural network models that advance our computational understanding of cognition, which is broad and encompasses artificial intelligence, machine perception, and cognitive robotics. Recently, I've been working on making machines perceive <a href="https://daniilidis-group.github.io/sensorimotor_affordances/">motion</a> and <a href ="https://daniilidis-group.github.io/transformational_states/">intuitive physics</a> in a way that is closer to human understanding by using video prediction. I am also exploring several ideas related to intrinsic curiosity, and meta-learning.
+            My general interest is in creating neural network models that advance our computational understanding of cognition, which is broad and encompasses artificial intelligence, machine perception, and cognitive robotics. Recently, I've been working on making machines perceive <a href="https://daniilidis-group.github.io/learned_action_spaces/">motion</a> and <a href ="https://daniilidis-group.github.io/transformational_states/">intuitive physics</a> in a way that is closer to human understanding by using video prediction. I am also exploring several ideas related to intrinsic curiosity, and meta-learning.
           </p>
           <p>
             During my bachelor's, I worked on <a href="https://github.com/orybkin/Bachelor-Thesis">camera geometry</a> for structure from motion. Check out this and my <a href="https://github.com/orybkin/Autonomous-turtle">other</a> <a href="https://github.com/orybkin/Tesseract">fun</a> projects on my <a href="https://github.com/orybkin">GitHub</a> page.
@@ -140,20 +140,20 @@
       </tr>
       </table>
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tr  onmouseout="sensorimotor_stop()" onmouseover="sensorimotor_start()">
+      <tr  onmouseout="CLASP_stop()" onmouseover="CLASP_start()">
         <td width="25%">
           <div class="one">
-          <div class="two" id = 'sensorimotor_image'><img src='sensorimotor_after.gif' width="160" height="160"></div>
-          <img src='sensorimotor_before.png' width="160" height="160">
+          <div class="two" id = 'CLASP_image'><img src='CLASP_after.gif' width="160" height="160"></div>
+          <img src='CLASP_before.png' width="160" height="160">
           </div>
           <script type="text/javascript">
-          function sensorimotor_start() {
-          document.getElementById('sensorimotor_image').style.opacity = "1";
+          function CLASP_start() {
+          document.getElementById('CLASP_image').style.opacity = "1";
           }
-          function sensorimotor_stop() {
-          document.getElementById('sensorimotor_image').style.opacity = "0";
+          function CLASP_stop() {
+          document.getElementById('CLASP_image').style.opacity = "0";
           }
-          sensorimotor_stop()
+          CLASP_stop()
           </script>
         </td>
         <td width="75%" valign="top">
@@ -165,11 +165,11 @@
           <br>
           <strong>Oleh Rybkin</strong>*, <a href="https://kpertsch.github.io/">Karl Pertsch</a>*,  <a href="http://www.scs.ryerson.ca/kosta/">Kosta Derpanis</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="http://www.drewjaegle.com/">Andrew Jaegle</a><br>
           <i>International Conference on Learning Representations (ICLR)</i>, 2019<br>
-          <a href ="https://openreview.net/pdf?id=SylPMnR9Ym">paper</a> / <a href ="https://daniilidis-group.github.io/sensorimotor_affordances/">project page</a> / <a href ="https://arxiv.org/abs/1806.09655">old arXiv version</a>  /
-          <a href ="sensorimotor_poster.pdf">old poster</a>
+          <a href ="https://openreview.net/pdf?id=SylPMnR9Ym">paper</a>  / <a href ="https://arxiv.org/abs/1806.09655">old arXiv version</a> / <a href ="https://daniilidis-group.github.io/learned_action_spaces/">project page & videos</a>  /
+          <a href ="CLASP_poster.pdf">poster</a>
           <br>
         </p>
-        <p> The method learns the action space of a robot from pure video data. This can be used e.g. to transplant a trajectory of actions from one video into another.</p>
+        <p> The method learns the action space of a robot from pure video data together with a predictive model. It can be used for model predictive control, while requires orders of magnitude fewer videos annotated with actions .</p>
         <p>
         <i> Hover the mouse (or tap the screen) here to see the video.</i></p>
         </p>
