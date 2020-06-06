@@ -57,6 +57,10 @@
     span.highlight {
         background-color: #ffffd0;
     }
+
+    img {
+      border-radius: 15px;
+    }
   </style>
   <link rel="icon" type="image/png" href="olehrybkin.JPG">
   <title>Oleh Rybkin. Personal Webpage</title>
@@ -113,6 +117,17 @@
   </head>
   <body>
 
+    <!-- Dark mode -->
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
+    <script>
+    var options = {
+      autoMatchOsTheme: false // default: true
+    }
+
+    const darkmode = new Darkmode(options);
+    darkmode.showWidget();
+    </script>
+
   <!-- Intro & photo -->
   <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
     <tr>
@@ -158,7 +173,7 @@
         <td width="100%" valign="middle">
           <heading>News</heading>
           <ul>
-              <li> <strong> Apr 2020</strong>: Our preprint on <a href="https://ramanans1.github.io/plan2explore/">planning to explore</a> is out! </li>
+              <li> <strong> Apr 2020</strong>: Our paper on <a href="https://ramanans1.github.io/plan2explore/">planning to explore</a> will be presented at <a href='https://icml.cc/Conferences/2020'>ICML 2020</a>! </li>
               <li> <strong> Mar 2020</strong>: Our work on <a href="https://arxiv.org/pdf/1904.05869.pdf">keyframe discovery for planning</a> is one of the first papers ever accepted to <a href="https://sites.google.com/berkeley.edu/l4dc/home?authuser=0"> L4DC</a>. </li>
               <li> <strong> Dec 2019</strong>: A <a href="https://arxiv.org/pdf/1912.12773.pdf">preprint</a> on learning predictive models from observation and interaction is out. </li>
               <li> <strong> Jun 2019</strong>: Three new workshop papers presented at ICML and RSS workshops!</li>
@@ -173,7 +188,7 @@
         </td>
       <!-- </tr> -->
     	<!-- </tbody> -->
-    </table>
+      </table>
 
 
       <!-- Research -->
@@ -205,61 +220,25 @@
       </tr>
       </table>
 
-
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-
-      <tr onmouseout="P2E_stop()" onmouseover="P2E_start()">
-        <td width="25%">
-          <div class="one">
-          <div class="two" id = 'P2E_image'><img src='P2E_after.gif' width="160" height="160"></div>
-          <img src='P2E_before.png' width="160" height="160">
-          </div>
-          <script type="text/javascript">
-          function P2E_start() {
-          document.getElementById('P2E_image').style.opacity = "1";
-          }
-          function P2E_stop() {
-          document.getElementById('P2E_image').style.opacity = "0";
-          }
-          P2E_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://arxiv.org/pdf/2005.05960.pdf">
-          <papertitle>Planning to Explore via Self-Supervised World Models</papertitle>
-          </a>
-          <br>
-          <a href="https://github.com/ramanans1">Ramanan Sekar*</a>, <strong>Oleh Rybkin*</strong>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://people.eecs.berkeley.edu/~pabbeel/">Pieter Abbeel</a>, <a href="https://danijar.com">Danijar Hafner</a>, <a href="https://people.eecs.berkeley.edu/~pathak/">Deepak Pathak</a> <br>
-
-          <i>ArXiv</i>, 2020<br>
-          <!-- <i>Workshop on BeTR-RL at ICLR</i>, 2020<br> -->
-
-          <a href="https://ramanans1.github.io/plan2explore/">project page & videos</a> / <a href ="https://arxiv.org/abs/2005.05960">arXiv</a> / <a href="https://ramanans1.github.io/plan2explore/resources/video.mp4">video (3 minutes)</a> / <a href="https://www.youtube.com/watch?v=GyEzjW1m7kU">talk (5 minutes)</a>
-
-          <br>
-        </p>
-        <p> We propose a model-based agent for self-supervised reinforcement learning. Our agent is able to adapt in a zero/few-shot setup, achieving comparable performance to supervised state-of-the-art RL. </p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
-        </td>
-      </tr>
-
+      <div style="width:100%; text-align=left; margin-left:20;">
+        <heading>Preprints</heading>
+      </div>
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="400">
 
       <tr onmouseout="SSA_stop()" onmouseover="SSA_start()">
         <td width="25%">
           <div class="one">
-          <div class="two" id = 'SSA_image'><img src='SSA_after.gif' width="160" height="160"></div>
-          <img src='SSA_before.png' width="160" height="160">
+          <div class="two" id = 'SSA_image' ><img src='SSA_after.gif' width="160" height="160"></div>
+          <img id = 'SSA_gif' src='SSA_before.png' width="160" height="160" style="z-index:-1">
           </div>
           <script type="text/javascript">
           function SSA_start() {
           document.getElementById('SSA_image').style.opacity = "1";
+          document.getElementById('SSA_gif').style.opacity = "0";
           }
           function SSA_stop() {
           document.getElementById('SSA_image').style.opacity = "0";
+          document.getElementById('SSA_gif').style.opacity = "1";
           }
           SSA_stop()
           </script>
@@ -290,14 +269,16 @@
         <td width="25%">
           <div class="one">
           <div class="two" id = 'HEDGE_image'><img src='HEDGE_after.gif' width="160" height="160"></div>
-          <img src='HEDGE_before.png' width="160" height="160">
+          <img id = 'HEDGE_gif' src='HEDGE_before.png' width="160" height="160" style="z-index:-1">
           </div>
           <script type="text/javascript">
           function HEDGE_start() {
           document.getElementById('HEDGE_image').style.opacity = "1";
+          document.getElementById('HEDGE_gif').style.opacity = "0";
           }
           function HEDGE_stop() {
           document.getElementById('HEDGE_image').style.opacity = "0";
+          document.getElementById('HEDGE_gif').style.opacity = "1";
           }
           HEDGE_stop()
           </script>
@@ -324,6 +305,93 @@
         </p>
         </td>
       </tr>
+    </table>
+
+    <div style="width:100%; text-align=left; margin-left:20;">
+      <heading>Publications</heading>
+    </div>
+    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="400">
+      <tr onmouseout="P2E_stop()" onmouseover="P2E_start()">
+        <td width="25%">
+          <div class="one">
+          <div class="two" id = 'P2E_image'><img src='P2E_after.gif' width="160" height="160"></div>
+          <img id = 'P2E_gif' src='P2E_before.png' width="160" height="160" style="z-index:-1">
+          </div>
+          <script type="text/javascript">
+          function P2E_start() {
+          document.getElementById('P2E_image').style.opacity = "1";
+          document.getElementById('P2E_gif').style.opacity = "0";
+          }
+          function P2E_stop() {
+          document.getElementById('P2E_image').style.opacity = "0";
+          document.getElementById('P2E_gif').style.opacity = "1";
+          }
+          P2E_stop()
+          </script>
+        </td>
+        <td width="75%" valign="top">
+        <p>
+        <p>
+          <a href="https://arxiv.org/pdf/2005.05960.pdf">
+          <papertitle>Planning to Explore via Self-Supervised World Models</papertitle>
+          </a>
+          <br>
+          <a href="https://ramanans1.github.io/">Ramanan Sekar*</a>, <strong>Oleh Rybkin*</strong>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://people.eecs.berkeley.edu/~pabbeel/">Pieter Abbeel</a>, <a href="https://danijar.com">Danijar Hafner</a>, <a href="https://people.eecs.berkeley.edu/~pathak/">Deepak Pathak</a> <br>
+
+          <i>International Conference on Machine Learning</i>, 2020<br>
+          <!-- <i>Workshop on BeTR-RL at ICLR</i>, 2020<br> -->
+
+          <a href="https://ramanans1.github.io/plan2explore/">project page & videos</a> / <a href ="https://arxiv.org/abs/2005.05960">arXiv</a> / <a href="https://www.youtube.com/watch?v=GftqnPWsCWw&feature=emb_logo">video (2 minutes)</a> / <a href="https://www.youtube.com/watch?v=GyEzjW1m7kU">talk (5 minutes)</a> / <a href="https://venturebeat.com/2020/05/13/plan2explore-adapts-to-exploration-tasks-without-fine-tuning/">VentureBeat</a> / <a href="https://github.com/ramanans1/plan2explore">code</a>
+
+
+          <br>
+        </p>
+        <p> We propose a model-based agent for self-supervised reinforcement learning. Our agent is able to adapt in a zero/few-shot setup, achieving comparable performance to supervised state-of-the-art RL. </p>
+        <p>
+        <i> Hover/tap here to see the video.</i></p>
+        </p>
+        </td>
+      </tr>
+
+      <tr onmouseout="KeyIn_stop()" onmouseover="KeyIn_start()">
+        <td width="25%">
+          <div class="one">
+          <div class="two" id = 'KeyIn_image'><img src='KeyIn_after.gif' width="160" height="160"></div>
+          <img id = 'KeyIn_gif' src='KeyIn_before.png' width="160" height="160" style="z-index:-1">
+          </div>
+          <script type="text/javascript">
+          function KeyIn_start() {
+          document.getElementById('KeyIn_image').style.opacity = "1";
+          document.getElementById('KeyIn_gif').style.opacity = "0";
+          }
+          function KeyIn_stop() {
+          document.getElementById('KeyIn_image').style.opacity = "0";
+          document.getElementById('KeyIn_gif').style.opacity = "1";
+          }
+          KeyIn_stop()
+          </script>
+        </td>
+        <td width="75%" valign="top">
+        <p>
+        <p>
+          <a href="https://arxiv.org/pdf/1904.05869.pdf">
+          <papertitle>Keyframing the Future: Keyframe Discovery for Visual Prediction and Planning</papertitle>
+          </a>
+          <br>
+          <a href="https://kpertsch.github.io/">Karl Pertsch</a>*,  <strong>Oleh Rybkin</strong>*, <a href="https://www.linkedin.com/in/yjy0625/">Jingyun Yang</a>, <a href="https://github.com/AZdet">Shenghao Zhou</a>, <a href="http://www.scs.ryerson.ca/kosta/">Kosta Derpanis</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="http://www-bcf.usc.edu/~limjj/">Joseph Lim</a>, <a href="http://www.drewjaegle.com/">Andrew Jaegle</a><br>
+
+          <i>Conference on Learning for Dynamics and Control (L4DC)</i>, 2020<br>
+
+          <a href ="https://sites.google.com/view/keyin">project page & videos</a> / <a href ="https://arxiv.org/abs/1904.05869">arXiv</a> / <a href ="KeyIn_poster.pdf">poster</a> / <a href="https://docs.google.com/presentation/d/154jEGsWOStl46DvZvam3HVTGyi8KslLy8lP6ClkiEE8/edit?usp=sharing">slides</a> / <a href="https://slideslive.com/38915902/keyln-discovering-subgoal-structure-with-keyframebased-video-prediction">video (1 minute)</a>
+          <br>
+        </p>
+        <p> We discover keyframes in videos by learning to select frames that enable prediction of the entire sequence. By using the keyframe structure of the data for prediction, our method is further able to perform planning for longer horizons.</p>
+        <p>
+        <i> Hover/tap here to see the video.</i></p>
+        </p>
+        </td>
+      </tr>
+
 
       <!--
       <tr onmouseout="Surprise_stop()" onmouseover="Surprise_start()">
@@ -366,55 +434,20 @@
         </td>
       </tr> -->
 
-      <tr onmouseout="KeyIn_stop()" onmouseover="KeyIn_start()">
-        <td width="25%">
-          <div class="one">
-          <div class="two" id = 'KeyIn_image'><img src='KeyIn_after.gif' width="160" height="160"></div>
-          <img src='KeyIn_before.png' width="160" height="160">
-          </div>
-          <script type="text/javascript">
-          function KeyIn_start() {
-          document.getElementById('KeyIn_image').style.opacity = "1";
-          }
-          function KeyIn_stop() {
-          document.getElementById('KeyIn_image').style.opacity = "0";
-          }
-          KeyIn_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://arxiv.org/pdf/1904.05869.pdf">
-          <papertitle>Keyframing the Future: Keyframe Discovery for Visual Prediction and Planning</papertitle>
-          </a>
-          <br>
-          <a href="https://kpertsch.github.io/">Karl Pertsch</a>*,  <strong>Oleh Rybkin</strong>*, <a href="https://www.linkedin.com/in/yjy0625/">Jingyun Yang</a>, <a href="https://github.com/AZdet">Shenghao Zhou</a>, <a href="http://www.scs.ryerson.ca/kosta/">Kosta Derpanis</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="http://www-bcf.usc.edu/~limjj/">Joseph Lim</a>, <a href="http://www.drewjaegle.com/">Andrew Jaegle</a><br>
-
-          <i>Conference on Learning for Dynamics and Control (L4DC)</i>, 2020<br>
-
-          <a href ="https://sites.google.com/view/keyin">project page & videos</a> / <a href ="https://arxiv.org/abs/1904.05869">arXiv</a> / <a href ="KeyIn_poster.pdf">poster</a> / <a href="https://docs.google.com/presentation/d/154jEGsWOStl46DvZvam3HVTGyi8KslLy8lP6ClkiEE8/edit?usp=sharing">slides</a> / <a href="https://slideslive.com/38915902/keyln-discovering-subgoal-structure-with-keyframebased-video-prediction">video (1 minute)</a>
-          <br>
-        </p>
-        <p> We discover keyframes in videos by learning to select frames that enable prediction of the entire sequence. By using the keyframe structure of the data for prediction, our method is further able to perform planning for longer horizons.</p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
-        </td>
-      </tr>
-
       <tr  onmouseout="CLASP_stop()" onmouseover="CLASP_start()">
         <td width="25%">
           <div class="one">
           <div class="two" id = 'CLASP_image'><img src='CLASP_after.gif' width="160" height="160"></div>
-          <img src='CLASP_before.png' width="160" height="160">
+          <img id = 'CLASP_gif' src='CLASP_before.png' width="160" height="160" style="z-index:-1">
           </div>
           <script type="text/javascript">
           function CLASP_start() {
           document.getElementById('CLASP_image').style.opacity = "1";
+          document.getElementById('CLASP_gif').style.opacity = "0";
           }
           function CLASP_stop() {
           document.getElementById('CLASP_image').style.opacity = "0";
+          document.getElementById('CLASP_gif').style.opacity = "1";
           }
           CLASP_stop()
           </script>
@@ -558,7 +591,7 @@
               </td>
               <td align="left">
                 <ul style="list-style-type:none;">
-                  <li><a href="https://github.com/ramanans1">Ramanan Sekar</a></li>
+                  <li><a href="https://ramanans1.github.io/">Ramanan Sekar</a></li>
                   <li><a href="https://github.com/AZdet">Shenghao Zhou</a></li>
                 </ul>
               </td>
