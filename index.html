@@ -1,7 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-  <meta name=viewport content=“width=800”>
+<head>
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <!-- <meta name=viewport content="width=device-width"> -->
+  <!-- <meta name=viewport content="width=800"> -->
   <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
   <style type="text/css">
     /* Color scheme stolen from Sergey Karayev */
@@ -13,6 +15,12 @@
     color: #f09228;
     text-decoration:none;
     }
+    /* toggling stuff */
+    .toggled:hover, .toggled:active, .toggled:link, .toggled:visited  {
+    color: black;
+    text-decoration:underline;
+    cursor: text;
+    }
     body,td,th,tr,p,a {
     font-family: 'Lato', Verdana, Helvetica, sans-serif;
     font-size: 14px
@@ -20,6 +28,12 @@
     strong {
     font-family: 'Lato', Verdana, Helvetica, sans-serif;
     font-size: 14px;
+    }
+    oral {
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
     }
     heading {
     font-family: 'Lato', Verdana, Helvetica, sans-serif;
@@ -57,15 +71,14 @@
     span.highlight {
         background-color: #ffffd0;
     }
-
     img {
       border-radius: 15px;
     }
   </style>
-  <link rel="icon" type="image/png" href="olehrybkin.JPG">
+  <link rel="icon" type="image/png" href="olehrybkin.png">
   <title>Oleh Rybkin. Personal Webpage</title>
   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116311994-1"></script>
   <script>
@@ -76,6 +89,7 @@
     gtag('config', 'UA-116311994-1');
   </script>
 
+  <!-- Not sure what this is for, maybe the gif toggles? -->
   <script type="text/javascript">
      function visibility_on(id) {
           var e = document.getElementById(id+"_text");
@@ -114,19 +128,38 @@
      }
   </script>
 
-  </head>
-  <body>
+  <!-- Selected publications toggle -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  function pubs_off() {
+    $('.hiddenPubs').hide();
+    var e = document.getElementById('sel_pub_button');
+    e.classList.add("toggled");
+    var e = document.getElementById('all_pub_button');
+    e.classList.remove("toggled");
+  }
+  function pubs_on() {
+    $('.hiddenPubs').slideDown();
+    var e = document.getElementById('all_pub_button');
+    e.classList.add("toggled");
+    var e = document.getElementById('sel_pub_button');
+    e.classList.remove("toggled");
+  };
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-    <!-- Dark mode -->
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
-    <script>
-    var options = {
-      autoMatchOsTheme: false // default: true
-    }
+<body onload='pubs_off()'>
+  <!-- Dark mode -->
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
+  <script>
+  var options = {
+    autoMatchOsTheme: false // default: true
+  }
 
-    const darkmode = new Darkmode(options);
-    darkmode.showWidget();
-    </script>
+  const darkmode = new Darkmode(options);
+  darkmode.showWidget();
+  </script>
 
   <!-- Intro & photo -->
   <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
@@ -138,29 +171,42 @@
         <p align="center">
           <name>Oleh Rybkin</name>
         </p>
-        <p>I am a Ph.D. student in the <a href="https://www.grasp.upenn.edu/">GRASP laboratory</a> at the University of Pennsylvania advised by <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>. I am interested in deep learning, computer vision, and robotics. Most of my recent work is on deep predictive models of videos.
-        </p>
+        <p>Hi! I am <a href="https://en.wikipedia.org/wiki/Oleg">Oleh</a>, a Ph.D. student in the <a href="https://www.grasp.upenn.edu/">GRASP laboratory</a> at the University of Pennsylvania advised by <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>. I work on visual model-based reinforcement learning. </p>
+
+        <!-- <p> I work on visual model-based reinforcement learning. Recently, I've been interested in self-supervised RL, hierarchical planning, modeling other agents, as well as probabilistic video models. </p> -->
+
+        I am building agents that gain understanding of their environment by learning internal world models.
+        <!-- I believe that world models is crucial for such understanding to generalize to new situations and tasks. -->
+        Recently, I've been working on unsupervised agents, long-horizon planning, and building better predictive models.
+
+        <!-- My recent work in this area is on <a href="https://ramanans1.github.io/plan2explore/">self-supervised</a> agents, <a href="https://sites.google.com/view/keyin">long-term</a> <a href="https://orybkin.github.io/video-gcp/">hierarchical</a> planning, <a href="https://sites.google.com/view/lpmfoai">understanding</a> <a href="https://daniilidis-group.github.io/learned_action_spaces/">others</a>, and understanding human motion and behavior. -->
+
+        <!-- I am interested in deep learning, computer vision, and robotics. Most of my recent work is on deep predictive models of videos. -->
+
         <!-- <p>
            Recently, I've been working on using deep predictive models to discover different kinds of semantic structure in video.
         </p> -->
         <p>
-          I received my bachelor's degree from <a href="https://www.cvut.cz/en">Czech Technical University in Prague</a>, where I worked with <a href="http://people.ciirc.cvut.cz/~pajdla/">Tomas Pajdla</a>. I've spent time at <a href="https://www.di.ens.fr/willow/">INRIA</a> with  <a href="http://www.di.ens.fr/~josef/">Josef Sivic</a>, <a href="https://www.titech.ac.jp/english/">TiTech</a> with <a href="http://www.ok.ctrl.titech.ac.jp/~torii/">Akihiko Torii</a>, and <a href="https://www.berkeley.edu/">UC Berkeley</a> with <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a> and <a href="http://people.eecs.berkeley.edu/~cbfinn/">Chelsea Finn</a>.
+          I received my bachelor's degree from <a href="https://www.cvut.cz/en">Czech Technical University in Prague</a>, where I worked with <a href="http://people.ciirc.cvut.cz/~pajdla/">Tomas Pajdla</a>. I've spent time at <a href="https://www.di.ens.fr/willow/">INRIA</a> with  <a href="http://www.di.ens.fr/~josef/">Josef Sivic</a>, <a href="https://www.titech.ac.jp/english/">TiTech</a> with <a href="http://www.ok.ctrl.titech.ac.jp/~torii/">Akihiko Torii</a>, and <a href="https://www.berkeley.edu/">UC Berkeley</a> with <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>, <a href="https://www.seas.upenn.edu/~dineshj/">Dinesh Jayaraman</a>, and <a href="http://people.eecs.berkeley.edu/~cbfinn/">Chelsea Finn</a>.
         </p>
         <p>
-          <a href="javascript:toggle_vis('contact')">My name</a>          <font id="contact" style="display:none">
-              is pronounced as "Oleg". I also prefer being called that in less formal writing. Wikipedia tries to explain the pronunciation <a href="https://en.wikipedia.org/wiki/Oleg"> here</a>.
-            </font>
-          </p>
+          <!-- <a href="javascript:toggle_vis('contact')">My name</a>
+              <font id="contact" style="display:none"> is pronounced as "Oleg". I also prefer being called that in less formal writing. Wikipedia tries to explain the pronunciation <a href="https://en.wikipedia.org/wiki/Oleg"> here</a>. </font> -->
+        </p>
         <p align=center>
           <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=CQEyVPMAAAAJ">Google Scholar</a> &nbsp/&nbsp
           <a href="https://github.com/orybkin">GitHub</a> &nbsp/&nbsp
-            <a href="mailto:oleh@seas.upenn.edu">Email</a> &nbsp/&nbsp
-          <a href="olehrybkin-CV.pdf">CV</a> &nbsp/&nbsp
-          <a href="https://www.linkedin.com/in/oleh-rybkin/"> LinkedIn </a>
+          <a href="materials/olehrybkin-CV.pdf">CV</a> &nbsp/&nbsp
+          <!-- <a href="https://www.linkedin.com/in/oleh-rybkin/"> LinkedIn </a> &nbsp/&nbsp -->
+          <!-- <a href="mailto:oleh@seas.upenn.edu" class="fa fa-envelope"></a> &nbsp/&nbsp
+          <a href="https://twitter.com/_oleh" class="fa fa-twitter"></a> -->
+          <a href="mailto:oleh@seas.upenn.edu">Email</a> &nbsp/&nbsp
+          <a href="https://twitter.com/_oleh"> Twitter </a>
+
         </p>
         </td>
         <td width="40%">
-        <img src="olehrybkin.png" height="40%">
+        <img src="olehrybkin.png" width="100%">
         </td>
       </tr>
       </table>
@@ -173,14 +219,21 @@
         <td width="100%" valign="middle">
           <heading>News</heading>
           <ul>
-              <li> <strong> Apr 2020</strong>: Our paper on <a href="https://ramanans1.github.io/plan2explore/">planning to explore</a> will be presented at <a href='https://icml.cc/Conferences/2020'>ICML 2020</a>! </li>
-              <li> <strong> Mar 2020</strong>: Our work on <a href="https://arxiv.org/pdf/1904.05869.pdf">keyframe discovery for planning</a> is one of the first papers ever accepted to <a href="https://sites.google.com/berkeley.edu/l4dc/home?authuser=0"> L4DC</a>. </li>
-              <li> <strong> Dec 2019</strong>: A <a href="https://arxiv.org/pdf/1912.12773.pdf">preprint</a> on learning predictive models from observation and interaction is out. </li>
-              <li> <strong> Jun 2019</strong>: Three new workshop papers presented at ICML and RSS workshops!</li>
+              <li> <strong> May 2021</strong>: Two ICML papers accepted: on <a href="https://orybkin.github.io/sigma-vae/">simple and effective</a> VAE training, and on <a href="https://orybkin.github.io/latco/">Latent Collocation</a>.</li>
+              <!-- <li> <strong> Dec 2020</strong>: New workshop poster (<a target="_blank" href="https://slideslive.com/38943304/latco-rlrw">video</a>, <a target="_blank" href="https://drive.google.com/file/d/1zG9NxHxgJFO6Ev1i_bfr-ZeS94uw69oM/view">paper</a>) on latent collocation.</li> -->
+              <li> <strong> Oct 2020</strong>: New talk (<a target="_blank" href="https://www.youtube.com/watch?v=baD7K5e8sAQ&ab_channel=GRASPLab">video</a>, <a target="_blank" href="materials/talk_2020_semiautonomous.pdf">slides</a>) on visual model-based RL (given at GRASP; Berkeley)!</li>
+              <li> <strong> Oct 2020</strong>: A new <a href="https://arxiv.org/pdf/2011.06507.pdf">paper</a> on learning from interaction and observation is accepted to <a href="https://www.robot-learning.org/home">CoRL 2020</a> as an oral! </li>
+              <li> <strong> Sep 2020</strong>: A new blog post at the <a href="https://bair.berkeley.edu/blog/2020/10/06/plan2explore/">BAIR</a> and <a href="https://blog.ml.cmu.edu/2020/10/06/plan2explore/">CMU ML</a> blogs about our <a href="https://ramanans1.github.io/plan2explore/">Plan2Explore</a> agent! </li>
+              <li> <strong> Sep 2020</strong>: Our <a href="https://arxiv.org/pdf/2006.13205.pdf">paper</a> on hierarchical goal-conditioned prediction and planning was presented at <a href="https://neurips.cc/">NeurIPS 2020</a>. </li>
+              <!-- <li> <strong> Jul 2020</strong>: Our <a href="https://arxiv.org/pdf/1912.12773.pdf">paper</a> on learning predictive models from observation and interaction will be presented at <a href="https://eccv2020.eu/">ECCV 2020</a>. </li> -->
+              <!-- <li> <strong> Jun 2020</strong>: A <a href="https://arxiv.org/pdf/2006.13202.pdf">preprint</a> on simple and effective VAE tranining is out. </li> -->
+              <!-- <li> <strong> May 2020</strong>: Our <a href="https://ramanans1.github.io/plan2explore/">paper</a> on planning to explore will be presented at <a href='https://icml.cc/Conferences/2020'>ICML 2020</a>! </li> -->
+              <!-- <li> <strong> Mar 2020</strong>: Our work on keyframe discovery for planning is one of the first <a href="https://arxiv.org/pdf/1904.05869.pdf">papers</a> ever accepted to <a href="https://sites.google.com/berkeley.edu/l4dc/home?authuser=0"> L4DC</a>. </li> -->
+              <!-- <li> <strong> Jun 2019</strong>: Three new workshop papers presented at ICML and RSS workshops!</li> -->
               <!-- <li> <strong> Apr 2019</strong>: New <a href="https://arxiv.org/pdf/1904.05869.pdf">preprint</a> on keyframe-based video prediction.</li> -->
-              <li> <strong> Mar 2019</strong>: I gave an invited talk on predictive models at Google, Mountain View (<a target="_blank" href="talk_3_18.pdf">slides</a>).</li>
+              <!-- <li> <strong> Mar 2019</strong>: I gave an invited talk on predictive models at Google, Mountain View (<a target="_blank" href="talk_3_18.pdf">slides</a>).</li> -->
               <!-- <li> <strong> Feb 2019</strong>: I will be spending Spring and Summer 2019 at <a href="https://www.berkeley.edu/">UC Berkeley</a> with <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a> and <a href="http://people.eecs.berkeley.edu/~cbfinn/">Chelsea Finn</a>.</li> -->
-              <li> <strong> Dec 2018</strong>: <a href="https://openreview.net/pdf?id=SylPMnR9Ym">Paper</a> on discovering an agent's action space accepted to <a target="_blank" href="https://iclr.cc/">ICLR 2019</a> in New Orleans.  </li>
+              <!-- <li> <strong> Dec 2018</strong>: <a href="https://openreview.net/pdf?id=SylPMnR9Ym">Paper</a> on discovering an agent's action space accepted to <a target="_blank" href="https://iclr.cc/">ICLR 2019</a> in New Orleans.  </li> -->
               <!-- <li> <strong> Dec 2018</strong>: We presented our work at the <a target="_blank" href="https://sites.google.com/view/infer2control-nips2018">Infer2Control workshop</a> at NeurIPS 2018 in Montreal. </li> -->
               <!-- <li> <strong> Jul 2018</strong>: I presented our <a href ="https://arxiv.org/abs/1806.09655">work</a> on discovering an agent's action space at the <a target="_blank" href="http://iplab.dmi.unict.it/icvss2018/">ICVSS 2018</a> in Sicily. </li> -->
               <!-- <li> <strong> Jun 2018</strong>: We presented our work at the <a target="_blank" href="https://sites.google.com/view/rss2018lair">LAIR workshop</a> at RSS 2018 in Pittsburgh. </li> -->
@@ -192,11 +245,15 @@
 
 
       <!-- Research -->
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+      <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
       <tr>
         <td width="100%" valign="middle">
-          <heading>Research</heading>
-          <p>
+
+        </td>
+      </tr>
+      </table> -->
+          <!-- <heading>Research</heading> -->
+
             <!-- I am broadly interested in designing learning algorithms with properties of human intelligence. For that, I subscribe to the machine learning formalism, but I also believe that working on the ecological problems such as the ones in computer vision and robotics is crucial to make progress towards intelligence. -->
 
              <!-- which includes problems in artificial intelligence, machine perception, and cognitive robotics. -->
@@ -206,24 +263,192 @@
             <!-- As one approach to this, I am also interested in designing algorithms that have certain properties of human intelligence missing from current AI methods,  -->
             <!-- which is broad and encompasses problems in artificial intelligence, machine perception, and cognitive robotics.  -->
 
-            I am interested in building agents that are capable of predicting the future and using this prediction capability to act in the world. I believe that using vision as sensing modality is crucial for making such agents general purpose, and testing these algorithms on a real robotic system is one of the only sure ways to make progress towards intelligence. My recent work in this area involves <a href="https://arxiv.org/pdf/2005.05960.pdf">intrinsically</a> <a href="https://drive.google.com/file/d/1ec2d1URU4oVS4xM2QZzpYy5jQ67zpenX/view">motivated</a> machines, as well as machines trying to understand
-            <!-- <a href ="https://daniilidis-group.github.io/transformational_states/">physics</a>,  -->
-            <a href ="https://sites.google.com/view/keyin">interesting moments</a> <a href ="https://drive.google.com/file/d/1HWAlH-bElxjZeiDsxu9FHbDPLkIWAF7V/view">in time</a>, <a href="https://sites.google.com/view/lpmfoai">agent</a> <a href="https://daniilidis-group.github.io/learned_action_spaces/"> motion</a>, and human motion and behavior.
-          <!-- </p>
-          <p>             -->
             <!-- My recent interests are in temporal representation learning through generative and predictive models. Specifically, I've been working toward making machines understand phenomena like <a href="https://daniilidis-group.github.io/learned_action_spaces/">agent</a> <a href="https://drive.google.com/file/d/1gE8hXP6NEFpoUtpAPH60NkjrzEjCc-Sj/view"> motion</a>, <a href ="https://daniilidis-group.github.io/transformational_states/">physics</a>, and <a href ="https://arxiv.org/abs/1904.05869">interesting moments</a> <a href ="https://drive.google.com/file/d/1HWAlH-bElxjZeiDsxu9FHbDPLkIWAF7V/view">in time</a> through video prediction, and make use of this undertanding for control. I am also interested in <a href="https://drive.google.com/file/d/1ec2d1URU4oVS4xM2QZzpYy5jQ67zpenX/view">intrinsic motivation</a> and understanding human behavior through prediction. -->
-          </p>
-          <p>
-            During my bachelor's, I worked on camera geometry for structure from motion and proposed an <a href="https://github.com/orybkin/Bachelor-Thesis">algorithm</a> for robust estimation of camera focal length. Check out this and my <a href="https://github.com/orybkin/Autonomous-turtle">other</a> <a href="https://github.com/orybkin/Tesseract">fun</a> projects on my <a href="https://github.com/orybkin">GitHub</a> page.
-          </p>
-        </td>
-      </tr>
-      </table>
 
-      <div style="width:100%; text-align=left; margin-left:20;">
+
+            <!-- During my bachelor's, I worked on camera geometry for structure from motion and proposed an <a href="https://github.com/orybkin/Bachelor-Thesis">algorithm</a> for robust estimation of camera focal length. Check out this and my <a href="https://github.com/orybkin/Autonomous-turtle">other</a> <a href="https://github.com/orybkin/Tesseract">fun</a> projects on my <a href="https://github.com/orybkin">GitHub</a> page. -->
+
+            <!-- <a href ="https://daniilidis-group.github.io/transformational_states/">physics</a>,  -->
+            <!-- I am interested in building agents that are capable of predicting the future and using the prediction capability to act in the world. I believe that using vision as sensing modality is crucial for making such agents general purpose, and that the probabilistic prediction formalism will continue yielding progress towards this goal. My recent work in this area is on <a href="https://ramanans1.github.io/plan2explore/">self-supervised</a> machines, <a href="https://sites.google.com/view/keyin">long</a>-<a href="https://orybkin.github.io/video-gcp/">term</a> hierarchical planning, <a href="https://sites.google.com/view/lpmfoai">understanding</a> other <a href="https://daniilidis-group.github.io/learned_action_spaces/">agents</a>, and understanding human motion and behavior. -->
+
+
+      <!-- <div style="width:100%; text-align=left; margin-left:20;">
         <heading>Preprints</heading>
       </div>
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="400">
+    </table> -->
+
+    <div style="width:100%; text-align=left; margin-left:20;">
+      <heading>Publications</heading>
+      <font size="4">
+        (<a style="font-size:17px" id='sel_pub_button' href="javascript:pubs_off()">Highlighted</a> /
+        <a style="font-size:17px" id='all_pub_button' href="javascript:pubs_on()">All</a>)
+      </font>
+    </div>
+    <!-- TODO make hover still work -->
+    <!-- TODO but only on the active buttons -->
+    <!-- make non-visible default -->
+    <!-- TODO: redo all below as divs, then the slide effect will also show -->
+    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="400">
+
+      <tr onmouseout="latco_stop()" onmouseover="latco_start()">
+        <td width="25%">
+          <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
+          <div class="two" id = 'latco_image'><img src='images/latco_after.gif' width="160" ></div>
+          <img id = 'latco_gif' src='images/latco_before.png' width="160" style="z-index:-1">
+          </div>
+          <script type="text/javascript">
+          function latco_start() {
+          document.getElementById('latco_image').style.opacity = "1";
+          document.getElementById('latco_gif').style.opacity = "0";
+          }
+          function latco_stop() {
+          document.getElementById('latco_image').style.opacity = "0";
+          document.getElementById('latco_gif').style.opacity = "1";
+          }
+          latco_stop()
+          </script>
+        </td>
+        <td width="75%" valign="top">
+        <p>
+        <p>
+          <a href="https://arxiv.org/pdf/2106.13229.pdf">
+          <papertitle>Model-Based Reinforcement Learning via Latent-Space Collocation</papertitle>
+          </a>
+          <br>
+          <strong>Oleh Rybkin</strong>*, <a href="https://www.seas.upenn.edu/~zchuning/">Chuning Zhu</a>*, <a href="https://www.linkedin.com/in/anusha-nagabandi-a4923bba">Anusha Nagabandi</a>,  <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://twitter.com/imordatch">Igor Mordatch</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
+          <i>International Conference on Machine Learning (ICML)</i>, 2021<br>
+          <!-- <i>Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI at ICML</i>, 2019<br> -->
+
+
+          <a href="https://orybkin.github.io/latco/">project page & videos</a> / <a href ="https://arxiv.org/abs/2106.13229">arXiv</a> /  <a href="https://www.youtube.com/watch?v=skc0e4KYNcw"> talk (5 minutes) </a> /  <a href="https://github.com/zchuning/latco">code</a>
+          <br>
+        </p>
+        <p> Our planner, LatCo, solves multi-stage long-horizon tasks much harder than those considered previously. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective plans. </p>
+        <p>
+        <i> Hover/tap here to see the video.</i></p>
+        </p>
+        </td>
+      </tr>
+
+      <tr onmouseout="sigma_stop()" onmouseover="sigma_start()">
+        <td width="25%">
+          <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
+          <div class="two" id = 'sigma_image'><img src='sigma_after.gif' width="160" ></div>
+          <img id = 'sigma_gif' src='sigma_before.jpeg' width="160" style="z-index:-1">
+          </div>
+          <script type="text/javascript">
+          function sigma_start() {
+          document.getElementById('sigma_image').style.opacity = "1";
+          document.getElementById('sigma_gif').style.opacity = "0";
+          }
+          function sigma_stop() {
+          document.getElementById('sigma_image').style.opacity = "0";
+          document.getElementById('sigma_gif').style.opacity = "1";
+          }
+          sigma_stop()
+          </script>
+        </td>
+        <td width="75%" valign="top">
+        <p>
+        <p>
+          <a href="https://arxiv.org/pdf/2006.13202.pdf">
+          <papertitle>Simple and Effective VAE Training with Calibrated Decoders</papertitle>
+          </a>
+          <br>
+          <strong>Oleh Rybkin</strong>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
+          <i>International Conference on Machine Learning (ICML)</i>, 2021<br>
+          <!-- <i>Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI at ICML</i>, 2019<br> -->
+
+
+          <a href="https://orybkin.github.io/sigma-vae/">project page & videos</a> / <a href ="https://arxiv.org/abs/2006.13202">arXiv</a> / <a href="https://github.com/orybkin/sigma-vae">code</a>
+          <br>
+        </p>
+        <p> Commonly used uncalibrated decoders adversely affect training of VAEs and sequence VAEs. However, learning appropriate calibrated decoders produces better samples, is simple to implement, and does not require the common heuristic weight on the KL divergence term. </p>
+        <p>
+        <i> Hover/tap here to see the video.</i></p>
+        </p>
+        </td>
+      </tr>
+
+      <tr class="hiddenPubs" onmouseout="RLV_stop()" onmouseover="RLV_start()">
+        <td width="25%">
+          <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
+          <div class="two" id = 'RLV_image'><img src='images/RLV_after.gif'width="160"></div>
+          <img id = 'RLV_gif' src='images/RLV_before.png' width="160"    style="z-index:-1">
+          </div>
+          <script type="text/javascript">
+          function RLV_start() {
+          document.getElementById('RLV_image').style.opacity = "1";
+          document.getElementById('RLV_gif').style.opacity = "0";
+          }
+          function RLV_stop() {
+          document.getElementById('RLV_image').style.opacity = "0";
+          document.getElementById('RLV_gif').style.opacity = "1";
+          }
+          RLV_stop()
+          </script>
+        </td>
+        <td width="75%" valign="top">
+        <p>
+        <p>
+          <a href="https://arxiv.org/pdf/2011.06507.pdf">
+          <papertitle>Reinforcement Learning with Videos: Combining Offline Observations with Interaction</papertitle>
+          </a>
+          <br>
+          <a href="https://sites.google.com/view/karlschmeckpeper">Karl Schmeckpeper</a>, <strong>Oleh Rybkin</strong>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>,  <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>, <a href="https://ai.stanford.edu/~cbfinn/">Chelsea Finn</a> </br>
+          <i> Conference on Robot Learning (CoRL)</i>, 2020 (<oral>oral presentation</oral>, 4% acceptance rate)<br>
+
+          <a href="https://sites.google.com/view/rl-with-videos">project page & videos</a> / <a href ="https://arxiv.org/abs/2011.06507">arXiv</a> / <a href="https://www.youtube.com/watch?v=aIWr4fhzPFA"> talk (5 minutes) </a> / <a href="https://github.com/kschmeckpeper/rl_with_videos">code</a>
+           <!-- / <a href="https://www.youtube.com/watch?v=axXx-x86IeY&feature=emb_logo">demo video (1 minute)</a> / <a href="https://youtu.be/w32twGTWvDU">talk (5 minutes)</a> / <a href="https://github.com/orybkin/video-RLV">code</a> -->
+          <br>
+        </p>
+        <p> We use offline observations of humans jointly with online robot interaction data in a joint reinforcement learning algortihm. The resulting approach is able to learn from real-world human videos to solve challenging robotic tasks.</p>
+        <p>
+        <i> Hover/tap here to see the video.</i></p>
+        </p>
+        </td>
+      </tr>
+
+      <tr onmouseout="GCP_stop()" onmouseover="GCP_start()">
+        <td width="25%">
+          <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
+          <div class="two" id = 'GCP_image'><img src='GCP_after.gif'width="160"></div>
+          <img id = 'GCP_gif' src='GCP_before.jpeg' width="160"    style="z-index:-1">
+          </div>
+          <script type="text/javascript">
+          function GCP_start() {
+          document.getElementById('GCP_image').style.opacity = "1";
+          document.getElementById('GCP_gif').style.opacity = "0";
+          }
+          function GCP_stop() {
+          document.getElementById('GCP_image').style.opacity = "0";
+          document.getElementById('GCP_gif').style.opacity = "1";
+          }
+          GCP_stop()
+          </script>
+        </td>
+        <td width="75%" valign="top">
+        <p>
+        <p>
+          <a href="https://arxiv.org/pdf/2006.13205.pdf">
+          <papertitle>Long-Horizon Visual Planning with Goal-Conditioned Hierarchical Predictors</papertitle>
+          </a>
+          <br>
+          <a href="https://kpertsch.github.io/">Karl Pertsch</a>*, <strong>Oleh Rybkin</strong>*, <a href="https://febert.github.io/">Frederik Ebert</a>, <a href="http://people.eecs.berkeley.edu/~cbfinn/">Chelsea Finn</a>, <a href="https://www.seas.upenn.edu/~dineshj/">Dinesh Jayaraman</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
+          <i>Neural Information Processing Systems (NeurIPS)</i>, 2020<br>
+          <!-- <i>Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI at ICML</i>, 2019<br> -->
+
+          <a href="https://orybkin.github.io/video-gcp/">project page & videos</a> / <a href ="https://arxiv.org/abs/2006.13205">arXiv</a> / <a href="https://www.youtube.com/watch?v=axXx-x86IeY&feature=emb_logo">demo video (1 minute)</a> / <a href="https://youtu.be/w32twGTWvDU">talk (5 minutes)</a> / <a href="https://github.com/orybkin/video-gcp">code</a>
+          <br>
+        </p>
+        <p> We propose a hierarchical goal-conditioned predictive model that is able to scale to very long horizon visual prediction (more than 500 frames). Leveraging the model, we also propose a hierarchical visual planning algorithm that is effective at long-horizon control.</p>
+        <p>
+        <i> Hover/tap here to see the video.</i></p>
+        </p>
+        </td>
+      </tr>
+
 
       <tr onmouseout="SSA_stop()" onmouseover="SSA_start()">
         <td width="25%">
@@ -252,65 +477,19 @@
           <br>
           <a href="https://sites.google.com/view/karlschmeckpeper">Karl Schmeckpeper</a>, <a href="https://anxie.github.io/">Annie Xie</a>, <strong>Oleh Rybkin</strong>, <a href="https://s-tian.github.io/">Stephen Tian</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>,  <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>, <a href="https://ai.stanford.edu/~cbfinn/">Chelsea Finn</a> </br>
 
-          <i>ArXiv</i>, 2019<br>
+          <i>European Conference on Computer Vision (ECCV)</i>, 2020<br>
           <!-- <i>Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI at ICML</i>, 2019<br> -->
 
-          <a href="https://sites.google.com/view/lpmfoai">project page & videos</a> / <a href ="https://arxiv.org/abs/1912.12773">arXiv</a> / <a href ="https://drive.google.com/file/d/1gE8hXP6NEFpoUtpAPH60NkjrzEjCc-Sj/view">workshop version</a>
+          <a href="https://sites.google.com/view/lpmfoai">project page & videos</a> / <a href ="https://arxiv.org/abs/1912.12773">arXiv</a> / <a href="https://www.youtube.com/watch?v=jWbwh4uZFgU">demo video (1 minute)</a> / <a href="https://www.youtube.com/watch?v=V_yLQtnS5YE">talk (8 minutes)</a> / <a href ="https://drive.google.com/file/d/1gE8hXP6NEFpoUtpAPH60NkjrzEjCc-Sj/view">workshop version</a>
           <br>
         </p>
-        <p>  We are able to learn action representations that generalize between robot data and passive observations of other agents (e.g. humans). This enables the use of additional diverse sources of data to train models for robotic control. </p>
+        <p>  We are able to learn action representations that generalize between robot data and passive observations of other agents (e.g. humans). This enables the use of additional diverse sources of data to train models for visual robotic control. </p>
         <p>
         <i> Hover/tap here to see the video.</i></p>
         </p>
         </td>
       </tr>
 
-      <tr onmouseout="HEDGE_stop()" onmouseover="HEDGE_start()">
-        <td width="25%">
-          <div class="one">
-          <div class="two" id = 'HEDGE_image'><img src='HEDGE_after.gif' width="160" height="160"></div>
-          <img id = 'HEDGE_gif' src='HEDGE_before.png' width="160" height="160" style="z-index:-1">
-          </div>
-          <script type="text/javascript">
-          function HEDGE_start() {
-          document.getElementById('HEDGE_image').style.opacity = "1";
-          document.getElementById('HEDGE_gif').style.opacity = "0";
-          }
-          function HEDGE_stop() {
-          document.getElementById('HEDGE_image').style.opacity = "0";
-          document.getElementById('HEDGE_gif').style.opacity = "1";
-          }
-          HEDGE_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://drive.google.com/file/d/1HWAlH-bElxjZeiDsxu9FHbDPLkIWAF7V/view">
-          <papertitle>HEDGE: Hierarchical Event-Driven Generation</papertitle>
-          </a>
-          <br>
-          <a href="https://febert.github.io/">Frederik Ebert</a>*, <a href="https://kpertsch.github.io/">Karl Pertsch</a>*, <strong>Oleh Rybkin</strong>*, <a href="http://people.eecs.berkeley.edu/~cbfinn/">Chelsea Finn</a>, <a href="https://people.eecs.berkeley.edu/~dineshjayaraman/">Dinesh Jayaraman</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
-
-          <i>Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI at ICML</i>, 2019<br>
-
-          <a href ="https://drive.google.com/file/d/1HWAlH-bElxjZeiDsxu9FHbDPLkIWAF7V/view">paper</a> /
-          <a href ="HEDGE_poster.pdf">poster</a> /
-           <a href="https://sites.google.com/view/mbrl-icml2019/accepted-papers?authuser=0">workshop page</a>
-          <br>
-        </p>
-        <p> We propose a hierarchical predictive model that predicts a sequence starting from the high level events and progressively fills in finer and finer details. We train the model on goal-conditioned prediction on up to 80-frames (=12.5 seconds) videos.</p>
-        <p>
-        <!-- <i> Hover/tap here to see the video.</i></p> -->
-        </p>
-        </td>
-      </tr>
-    </table>
-
-    <div style="width:100%; text-align=left; margin-left:20;">
-      <heading>Publications</heading>
-    </div>
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="400">
       <tr onmouseout="P2E_stop()" onmouseover="P2E_start()">
         <td width="25%">
           <div class="one">
@@ -338,22 +517,23 @@
           <br>
           <a href="https://ramanans1.github.io/">Ramanan Sekar*</a>, <strong>Oleh Rybkin*</strong>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://people.eecs.berkeley.edu/~pabbeel/">Pieter Abbeel</a>, <a href="https://danijar.com">Danijar Hafner</a>, <a href="https://people.eecs.berkeley.edu/~pathak/">Deepak Pathak</a> <br>
 
-          <i>International Conference on Machine Learning</i>, 2020<br>
+          <i>International Conference on Machine Learning (ICML)</i>, 2020<br>
           <!-- <i>Workshop on BeTR-RL at ICLR</i>, 2020<br> -->
 
-          <a href="https://ramanans1.github.io/plan2explore/">project page & videos</a> / <a href ="https://arxiv.org/abs/2005.05960">arXiv</a> / <a href="https://www.youtube.com/watch?v=GftqnPWsCWw&feature=emb_logo">video (2 minutes)</a> / <a href="https://www.youtube.com/watch?v=GyEzjW1m7kU">talk (5 minutes)</a> / <a href="https://venturebeat.com/2020/05/13/plan2explore-adapts-to-exploration-tasks-without-fine-tuning/">VentureBeat</a> / <a href="https://github.com/ramanans1/plan2explore">code</a>
+          <a href="https://ramanans1.github.io/plan2explore/">project page & videos</a> / <a href ="https://arxiv.org/abs/2005.05960">arXiv</a> / <a href="https://www.youtube.com/watch?v=GftqnPWsCWw&feature=emb_logo">demo video (2 minutes)</a> / <a href="https://www.youtube.com/watch?v=gan79mAVfq8">talk (10 minutes)</a> / <a href="https://venturebeat.com/2020/05/13/plan2explore-adapts-to-exploration-tasks-without-fine-tuning/">VentureBeat</a> / <a href="https://blog.ml.cmu.edu/2020/10/06/plan2explore/">blog</a> /
+           <a href="https://github.com/ramanans1/plan2explore">code</a>
 
 
           <br>
         </p>
-        <p> We propose a model-based agent for self-supervised reinforcement learning. Our agent is able to adapt in a zero/few-shot setup, achieving comparable performance to supervised state-of-the-art RL. </p>
+        <p> We propose a visual model-based agent for self-supervised reinforcement learning. Our agent is able to adapt in a zero/few-shot setup, achieving comparable performance to supervised state-of-the-art RL. </p>
         <p>
         <i> Hover/tap here to see the video.</i></p>
         </p>
         </td>
       </tr>
 
-      <tr onmouseout="KeyIn_stop()" onmouseover="KeyIn_start()">
+      <tr class="hiddenPubs" onmouseout="KeyIn_stop()" onmouseover="KeyIn_start()">
         <td width="25%">
           <div class="one">
           <div class="two" id = 'KeyIn_image'><img src='KeyIn_after.gif' width="160" height="160"></div>
@@ -382,7 +562,7 @@
 
           <i>Conference on Learning for Dynamics and Control (L4DC)</i>, 2020<br>
 
-          <a href ="https://sites.google.com/view/keyin">project page & videos</a> / <a href ="https://arxiv.org/abs/1904.05869">arXiv</a> / <a href ="KeyIn_poster.pdf">poster</a> / <a href="https://docs.google.com/presentation/d/154jEGsWOStl46DvZvam3HVTGyi8KslLy8lP6ClkiEE8/edit?usp=sharing">slides</a> / <a href="https://slideslive.com/38915902/keyln-discovering-subgoal-structure-with-keyframebased-video-prediction">video (1 minute)</a>
+          <a href ="https://sites.google.com/view/keyin">project page & videos</a> / <a href ="https://arxiv.org/abs/1904.05869">arXiv</a> / <a href ="KeyIn_poster.pdf">poster</a> / <a href="https://docs.google.com/presentation/d/154jEGsWOStl46DvZvam3HVTGyi8KslLy8lP6ClkiEE8/edit?usp=sharing">slides</a> / <a href="https://www.youtube.com/watch?v=e2hVV5FDKf8&feature=emb_logo">talk (5 minutes)</a>
           <br>
         </p>
         <p> We discover keyframes in videos by learning to select frames that enable prediction of the entire sequence. By using the keyframe structure of the data for prediction, our method is further able to perform planning for longer horizons.</p>
@@ -434,13 +614,13 @@
         </td>
       </tr> -->
 
-      <tr  onmouseout="CLASP_stop()" onmouseover="CLASP_start()">
+      <tr class="hiddenPubs"  onmouseout="CLASP_stop()" onmouseover="CLASP_start()">
         <td width="25%">
-          <div class="one">
-          <div class="two" id = 'CLASP_image'><img src='CLASP_after.gif' width="160" height="160"></div>
-          <img id = 'CLASP_gif' src='CLASP_before.png' width="160" height="160" style="z-index:-1">
+          <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
+          <!-- <div class="two" id = 'CLASP_image'><img src='CLASP_after.gif'width="160"></div> -->
+          <img id = 'CLASP_gif' src='images/CLASP.png' width="160"    style="z-index:-1">
           </div>
-          <script type="text/javascript">
+          <!-- <script type="text/javascript">
           function CLASP_start() {
           document.getElementById('CLASP_image').style.opacity = "1";
           document.getElementById('CLASP_gif').style.opacity = "0";
@@ -450,7 +630,7 @@
           document.getElementById('CLASP_gif').style.opacity = "1";
           }
           CLASP_stop()
-          </script>
+          </script> -->
         </td>
         <td width="75%" valign="top">
         <p>
@@ -468,8 +648,8 @@
         </p>
         <p> We learn to discover an agent's action space along with a dynamics model from pure video data. The model can be used for model predictive control, requiring orders of magnitude fewer action-annotated videos than other methods.</p>
         <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
+        <!-- <i> Hover/tap here to see the video.</i></p>
+        </p> -->
         </td>
       </tr>
 
@@ -509,7 +689,7 @@
       </table>
 
       <!-- Blog -->
-      <table width="100%" align="center" border="0" cellpadding="20">
+      <table class="hiddenPubs" width="100%" align="center" border="0" cellpadding="20">
       <tr>
         <td>
         <heading>Blog</heading>
@@ -565,6 +745,8 @@
           <papertitle>Computing Machinery and Intelligence</papertitle></a>, Alan M. Turing. </br>
           <a href="http://www.gatsby.ucl.ac.uk/~pel/misc/stupidity.html">
           <papertitle>The importance of stupidity in scientific research</papertitle></a>, Martin A. Schwartz. </br>
+          <a href="https://www.cs.virginia.edu/~robins/YouAndYourResearch.html">
+          <papertitle>You and Your Research</papertitle></a>, Richard W. Hamming. </br>
           <a href="https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/">
           <papertitle>As we may think</papertitle></a>, Vannevar Bush. </br>
           <a href="https://arxiv.org/abs/2004.05107">
@@ -591,8 +773,7 @@
               </td>
               <td align="left">
                 <ul style="list-style-type:none;">
-                  <li><a href="https://ramanans1.github.io/">Ramanan Sekar</a></li>
-                  <li><a href="https://github.com/AZdet">Shenghao Zhou</a></li>
+                  <li><a href="https://www.seas.upenn.edu/~zchuning/">Chuning Zhu</a></li>
                 </ul>
               </td>
             </tr>
@@ -602,6 +783,9 @@
               </td>
               <td align="left">
                 <ul style="list-style-type:none;">
+                  <li><a href="https://github.com/WeiyuDu">Weiyu Du</a></li>
+                  <li><a href="https://github.com/AZdet">Shenghao Zhou</a>  (PhD @ UPenn)</li>
+                  <li><a href="https://ramanans1.github.io/">Ramanan Sekar</a> (ML SWE @ Qualcomm) </li>
                   <li><a href="https://www.linkedin.com/in/anton-arapin-9494b616b">Anton Arapin</a> (MS @ UChicago)</li>
                 </ul>
               </td>
@@ -611,14 +795,13 @@
         </tr>
 
       </table>
-
+      <hr>
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
       <tr>
         <td>
-        <br>
-        <p align="right">
+        <p align="center">
           <font size="2">
-          <a href="https://jonbarron.info/"><strong>website template credit</strong></a>
+          Inspired by <a href="https://jonbarron.info/">this</strong></a> template. Hosted on Eniac.
 	    </font>
         </p>
         </td>
@@ -627,5 +810,5 @@
     </td>
     </tr>
   </table>
-  </body>
+</body>
 </html>
