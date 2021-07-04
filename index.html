@@ -173,6 +173,30 @@
   };
   </script>
 
+  <!-- Dynamic generation -->
+  <script src="https://unpkg.com/mustache@latest"></script>
+  <script type="text/javascript" src="scripts/js-yaml.min.js"></script>
+  <script type="text/javascript">
+  function renderHello() {
+    var template = document.getElementById('template').innerHTML;
+    // $.getJSON("papers.json", function(papers) {
+    //   var rendered = Mustache.render(template, papers);
+    //   document.getElementById('mustache_target').innerHTML = rendered;
+    // }).fail( function(d, textStatus, error) {
+    //     alert("getJSON failed, status: " + textStatus + ", error: "+error)
+    // });
+    $.get("./papers.yaml").done(function(data) {
+      try {
+      papers = jsyaml.load(data)
+      var rendered = Mustache.render(template, papers);
+      document.getElementById('mustache_target').innerHTML = rendered;
+      }
+      catch(err) {
+        alert(err.message);
+      }
+    });
+  }
+  </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -314,29 +338,39 @@
       </font>
     </div>
     <!-- make non-visible default -->
-    <!-- TODO: make this list dynamically generated w/ jekyll or manual code -->
+    <!-- TODO make lists (authors and links) nicer -->
+    <!-- TODO Add option of not having a gif -->
+    <!-- TODO update all papers to dynamic loading -->
 
-    <div style="width:100%;position:relative;margin-left:20px;margin-right:20px" class="table-like" onmouseout="gif_stop('latco_image', 'latco_gif')" onmouseover="gif_start('latco_image', 'latco_gif')">
-      <div style="width:25%;position:relative;margin-top:20px;margin-bottom:20px">
-        <div class="one">
-        <div class="two" id='latco_image'><img src='images/latco_after.gif' width="160" ></div>
-        <img id='latco_gif' src='images/latco_before.png' width="160" style="z-index:-1">
+    <div id="mustache_target">Loading...</div>
+    <script id="template" type="x-tmpl-mustache">
+      {{#papers}}
+      <div style="width:100%;position:relative;margin-left:20px;margin-right:20px" class="table-like" onmouseout="gif_stop('{{name}}_image', '{{name}}_gif')" onmouseover="gif_start('{{name}}_image', '{{name}}_gif')">
+        <div style="width:25%;position:relative;margin-top:20px;margin-bottom:20px">
+          <div class="one">
+          <div class="two" id='{{name}}_image'><img src='images/{{name}}_after.gif' width="160" ></div>
+          <img id='{{name}}_gif' src='images/{{name}}_before.png' width="160" style="z-index:-1">
+          </div>
+        </div>
+        <div style="width:75%;position:relative" valign="top">
+          <p><a href={{title.link}}><papertitle>{{title.name}}</papertitle></a></br>
+
+          {{{authors}}}</br>
+
+          <i>{{conference.name}}</i>, {{conference.year}}<br>
+
+          {{{links}}}</p>
+
+          <p>{{description}}</p>
+
+          <i> Hover/tap here to see the video.</i>
         </div>
       </div>
-      <div style="width:75%;position:relative" valign="top">
-        <p><a href="https://arxiv.org/pdf/2106.13229.pdf"><papertitle>Model-Based Reinforcement Learning via Latent-Space Collocation</papertitle></a></br>
-
-        <strong>Oleh Rybkin</strong>*, <a href="https://www.seas.upenn.edu/~zchuning/">Chuning Zhu</a>*, <a href="https://www.linkedin.com/in/anusha-nagabandi-a4923bba">Anusha Nagabandi</a>,  <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://twitter.com/imordatch">Igor Mordatch</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
-
-        <i>International Conference on Machine Learning (ICML)</i>, 2021<br>
-
-        <a href="https://orybkin.github.io/latco/">project page & videos</a> / <a href ="https://arxiv.org/abs/2106.13229">arXiv</a> /  <a href="https://www.youtube.com/watch?v=skc0e4KYNcw"> talk (5 minutes) </a> /  <a href="https://github.com/zchuning/latco">code</a></p>
-
-        <p> Our planner, LatCo, solves multi-stage long-horizon tasks much harder than those considered previously. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective plans. </p>
-
-        <i> Hover/tap here to see the video.</i>
-      </div>
-    </div>
+      {{/papers}}
+    </script>
+    <script type="text/javascript">
+    renderHello()
+    </script>
 
     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="400">
 
