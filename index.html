@@ -76,6 +76,12 @@
     img {
       border-radius: 15px;
     }
+    .table-like {
+      display: flex;
+      flex-wrap: wrap;
+      flex-flow: row wrap;
+      justify-content: center;
+    }
   </style>
   <link rel="icon" type="image/png" href="olehrybkin.png">
   <title>Oleh Rybkin. Personal Webpage</title>
@@ -144,8 +150,15 @@
   <!-- Selected publications toggle -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript">
-  function pubs_off() {
+  function pubs_off_start() {
     $('.hiddenPubs').hide();
+    var e = document.getElementById('sel_pub_button');
+    e.classList.add("toggled");
+    var e = document.getElementById('all_pub_button');
+    e.classList.remove("toggled");
+  }
+  function pubs_off() {
+    $('.hiddenPubs').slideUp();
     var e = document.getElementById('sel_pub_button');
     e.classList.add("toggled");
     var e = document.getElementById('all_pub_button');
@@ -159,10 +172,12 @@
     e.classList.remove("toggled");
   };
   </script>
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body onload='pubs_off()'>
+<body onload='pubs_off_start()'>
   <!-- Dark mode -->
   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
   <script>
@@ -299,30 +314,31 @@
       </font>
     </div>
     <!-- make non-visible default -->
-    <!-- TODO: redo all below as divs, then the slide effect will also show -->
+    <!-- TODO: make this list dynamically generated w/ jekyll or manual code -->
+
+    <div style="width:100%;position:relative;margin-left:20px;margin-right:20px" class="table-like" onmouseout="gif_stop('latco_image', 'latco_gif')" onmouseover="gif_start('latco_image', 'latco_gif')">
+      <div style="width:25%;position:relative;margin-top:20px;margin-bottom:20px">
+        <div class="one">
+        <div class="two" id='latco_image'><img src='images/latco_after.gif' width="160" ></div>
+        <img id='latco_gif' src='images/latco_before.png' width="160" style="z-index:-1">
+        </div>
+      </div>
+      <div style="width:75%;position:relative" valign="top">
+        <p><a href="https://arxiv.org/pdf/2106.13229.pdf"><papertitle>Model-Based Reinforcement Learning via Latent-Space Collocation</papertitle></a></br>
+
+        <strong>Oleh Rybkin</strong>*, <a href="https://www.seas.upenn.edu/~zchuning/">Chuning Zhu</a>*, <a href="https://www.linkedin.com/in/anusha-nagabandi-a4923bba">Anusha Nagabandi</a>,  <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://twitter.com/imordatch">Igor Mordatch</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
+
+        <i>International Conference on Machine Learning (ICML)</i>, 2021<br>
+
+        <a href="https://orybkin.github.io/latco/">project page & videos</a> / <a href ="https://arxiv.org/abs/2106.13229">arXiv</a> /  <a href="https://www.youtube.com/watch?v=skc0e4KYNcw"> talk (5 minutes) </a> /  <a href="https://github.com/zchuning/latco">code</a></p>
+
+        <p> Our planner, LatCo, solves multi-stage long-horizon tasks much harder than those considered previously. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective plans. </p>
+
+        <i> Hover/tap here to see the video.</i>
+      </div>
+    </div>
+
     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="400">
-
-      <tr onmouseout="gif_stop('latco_image', 'latco_gif')" onmouseover="gif_start('latco_image', 'latco_gif')">
-        <td width="25%">
-          <div class="one">
-          <div class="two" id='latco_image'><img src='images/latco_after.gif' width="160" ></div>
-          <img id='latco_gif' src='images/latco_before.png' width="160" style="z-index:-1">
-          </div>
-        </td>
-        <td width="75%" valign="top">
-          <p><a href="https://arxiv.org/pdf/2106.13229.pdf"><papertitle>Model-Based Reinforcement Learning via Latent-Space Collocation</papertitle></a></br>
-
-          <strong>Oleh Rybkin</strong>*, <a href="https://www.seas.upenn.edu/~zchuning/">Chuning Zhu</a>*, <a href="https://www.linkedin.com/in/anusha-nagabandi-a4923bba">Anusha Nagabandi</a>,  <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://twitter.com/imordatch">Igor Mordatch</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
-
-          <i>International Conference on Machine Learning (ICML)</i>, 2021<br>
-
-          <a href="https://orybkin.github.io/latco/">project page & videos</a> / <a href ="https://arxiv.org/abs/2106.13229">arXiv</a> /  <a href="https://www.youtube.com/watch?v=skc0e4KYNcw"> talk (5 minutes) </a> /  <a href="https://github.com/zchuning/latco">code</a></p>
-
-          <p> Our planner, LatCo, solves multi-stage long-horizon tasks much harder than those considered previously. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective plans. </p>
-
-          <i> Hover/tap here to see the video.</i>
-        </td>
-      </tr>
 
       <tr onmouseout="sigma_stop()" onmouseover="sigma_start()">
         <td width="25%">
@@ -361,28 +377,16 @@
         </p>
         </td>
       </tr>
+    </table>
 
-      <tr class="hiddenPubs" onmouseout="RLV_stop()" onmouseover="RLV_start()">
-        <td width="25%">
-          <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
-          <div class="two" id = 'RLV_image'><img src='images/RLV_after.gif'width="160"></div>
-          <img id = 'RLV_gif' src='images/RLV_before.png' width="160"    style="z-index:-1">
-          </div>
-          <script type="text/javascript">
-          function RLV_start() {
-          document.getElementById('RLV_image').style.opacity = "1";
-          document.getElementById('RLV_gif').style.opacity = "0";
-          }
-          function RLV_stop() {
-          document.getElementById('RLV_image').style.opacity = "0";
-          document.getElementById('RLV_gif').style.opacity = "1";
-          }
-          RLV_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
+    <div style="width:100%;position:relative;margin-left:20px;margin-right:20px;" class="table-like hiddenPubs" onmouseout="gif_stop('RLV_image', 'RLV_gif')" onmouseover="gif_start('RLV_image', 'RLV_gif')">
+      <div style="width:25%;position:relative;margin-top:20px;margin-bottom:20px">
+        <div class="one">
+        <div class="two" id='RLV_image'><img src='images/RLV_after.gif' width="160" ></div>
+        <img id='RLV_gif' src='images/RLV_before.png' width="160" style="z-index:-1">
+        </div>
+      </div>
+      <div style="width:75%;position:relative" valign="top">
           <a href="https://arxiv.org/pdf/2011.06507.pdf">
           <papertitle>Reinforcement Learning with Videos: Combining Offline Observations with Interaction</papertitle>
           </a>
@@ -391,16 +395,16 @@
           <i> Conference on Robot Learning (CoRL)</i>, 2020 (<oral>oral presentation</oral>, 4% acceptance rate)<br>
 
           <a href="https://sites.google.com/view/rl-with-videos">project page & videos</a> / <a href ="https://arxiv.org/abs/2011.06507">arXiv</a> / <a href="https://www.youtube.com/watch?v=aIWr4fhzPFA"> talk (5 minutes) </a> / <a href="https://github.com/kschmeckpeper/rl_with_videos">code</a>
-           <!-- / <a href="https://www.youtube.com/watch?v=axXx-x86IeY&feature=emb_logo">demo video (1 minute)</a> / <a href="https://youtu.be/w32twGTWvDU">talk (5 minutes)</a> / <a href="https://github.com/orybkin/video-RLV">code</a> -->
           <br>
         </p>
         <p> We use offline observations of humans jointly with online robot interaction data in a joint reinforcement learning algortihm. The resulting approach is able to learn from real-world human videos to solve challenging robotic tasks.</p>
         <p>
         <i> Hover/tap here to see the video.</i></p>
         </p>
-        </td>
-      </tr>
+      </div>
+    </div>
 
+    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="00">
       <tr onmouseout="GCP_stop()" onmouseover="GCP_start()">
         <td width="25%">
           <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
