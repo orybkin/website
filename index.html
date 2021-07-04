@@ -175,6 +175,7 @@
 
   <!-- Dynamic generation -->
   <script src="https://unpkg.com/mustache@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
   <script type="text/javascript" src="scripts/js-yaml.min.js"></script>
   <script type="text/javascript">
   function renderHello() {
@@ -188,11 +189,12 @@
     $.get("./papers.yaml").done(function(data) {
       try {
       papers = jsyaml.load(data)
-      var rendered = Mustache.render(template, papers);
+      // var rendered = Mustache.render(template, papers);
+      var rendered = Handlebars.compile(template)(papers);
       document.getElementById('mustache_target').innerHTML = rendered;
       }
       catch(err) {
-        alert(err.message);
+        // alert(err.message);
       }
     });
   }
@@ -338,32 +340,43 @@
       </font>
     </div>
     <!-- make non-visible default -->
-    <!-- TODO make lists (authors and links) nicer -->
     <!-- TODO Add option of not having a gif -->
-    <!-- TODO update all papers to dynamic loading -->
 
     <div id="mustache_target">Loading...</div>
-    <script id="template" type="x-tmpl-mustache">
+    <!-- <script id="template" type="x-tmpl-mustache"> -->
+    <script id="template" type="text/x-handlebars-template">
       {{#papers}}
-      <div style="width:100%;position:relative;margin-left:20px;margin-right:20px" class="table-like" onmouseout="gif_stop('{{name}}_image', '{{name}}_gif')" onmouseover="gif_start('{{name}}_image', '{{name}}_gif')">
+      <div style="width:100%;position:relative;margin-left:20px;margin-right:20px" class="table-like {{#unless highlighted}}hiddenPubs{{/unless}}" onmouseout="gif_stop('{{name}}_image', '{{name}}_gif')" onmouseover="gif_start('{{name}}_image', '{{name}}_gif')">
         <div style="width:25%;position:relative;margin-top:20px;margin-bottom:20px">
           <div class="one">
-          <div class="two" id='{{name}}_image'><img src='images/{{name}}_after.gif' width="160" ></div>
+          {{#unless nogif}}
+          <div class="two" id='{{name}}_image'><img src='images/{{name}}_after.gif' width="160"></div>
+          {{/unless}}
           <img id='{{name}}_gif' src='images/{{name}}_before.png' width="160" style="z-index:-1">
           </div>
         </div>
         <div style="width:75%;position:relative" valign="top">
           <p><a href={{title.link}}><papertitle>{{title.name}}</papertitle></a></br>
 
-          {{{authors}}}</br>
+          {{#authors}}
+          {{#if me}}
+            <strong>Oleh Rybkin</strong>{{#if star}}*{{/if}},
+          {{else}}
+            <a href={{href}}>{{name}}</a>{{#if star}}*{{/if}}{{#unless @last}}, {{/unless}}
+          {{/if}}
+          {{/authors}}</br>
 
-          <i>{{conference.name}}</i>, {{conference.year}}<br>
+          <i>{{conference.name}}</i>, {{{conference.year}}}<br>
 
-          {{{links}}}</p>
+          {{#links}}
+          <a href={{href}}>{{name}}</a>{{#unless @last}} / {{/unless}}
+          {{/links}}</p>
 
           <p>{{description}}</p>
 
-          <i> Hover/tap here to see the video.</i>
+          {{#unless nogif}}
+          <p><i> Hover/tap here to see the video.</i></p>
+          {{/unless}}
         </div>
       </div>
       {{/papers}}
@@ -372,470 +385,125 @@
     renderHello()
     </script>
 
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="400">
-
-      <tr onmouseout="sigma_stop()" onmouseover="sigma_start()">
-        <td width="25%">
-          <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
-          <div class="two" id = 'sigma_image'><img src='sigma_after.gif' width="160" ></div>
-          <img id = 'sigma_gif' src='sigma_before.jpeg' width="160" style="z-index:-1">
-          </div>
-          <script type="text/javascript">
-          function sigma_start() {
-          document.getElementById('sigma_image').style.opacity = "1";
-          document.getElementById('sigma_gif').style.opacity = "0";
-          }
-          function sigma_stop() {
-          document.getElementById('sigma_image').style.opacity = "0";
-          document.getElementById('sigma_gif').style.opacity = "1";
-          }
-          sigma_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://arxiv.org/pdf/2006.13202.pdf">
-          <papertitle>Simple and Effective VAE Training with Calibrated Decoders</papertitle>
-          </a>
-          <br>
-          <strong>Oleh Rybkin</strong>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
-          <i>International Conference on Machine Learning (ICML)</i>, 2021<br>
-
-          <a href="https://orybkin.github.io/sigma-vae/">project page & videos</a> / <a href ="https://arxiv.org/abs/2006.13202">arXiv</a> / <a href="https://github.com/orybkin/sigma-vae">code</a>
-          <br>
-        </p>
-        <p> Commonly used uncalibrated decoders adversely affect training of VAEs and sequence VAEs. However, learning appropriate calibrated decoders produces better samples, is simple to implement, and does not require the common heuristic weight on the KL divergence term. </p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
-        </td>
-      </tr>
+    <!-- Blog -->
+    <table class="hiddenPubs" width="100%" align="center" border="0" cellpadding="20">
+    <tr>
+      <td>
+      <heading>Blog</heading>
+      </td>
+    </tr>
+        <tr onmouseout="pixel_metrics_stop()" onmouseover="pixel_metrics_start()" >
+          <td width="25%">
+            <div class="one">
+            <div class="two" id = 'pixel_metrics_image'><img src='pixel_metrics_after.gif' width="160" height="160"></div>
+            <img src='pixel_metrics_before.png' width="160" height="160">
+            </div>
+            <script type="text/javascript">
+            function pixel_metrics_start() {
+            document.getElementById('pixel_metrics_image').style.opacity = "1";
+            }
+            function pixel_metrics_stop() {
+            document.getElementById('pixel_metrics_image').style.opacity = "0";
+            }
+            pixel_metrics_stop()
+            </script>
+      <td width="75%" valign="top">
+      <p>
+        <a href="https://medium.com/@olegrybkin_20684/the-reasonable-ineffectiveness-of-mse-pixel-loss-for-future-prediction-and-what-to-do-about-it-4dca8152355d">
+        <papertitle>The reasonable ineffectiveness of pixel metrics for future prediction</papertitle>
+      </a> </br>
+        2018
+      <p>
+        MSE loss and its variants are commonly used for training and evaluation of future prediction. But is this the right thing to do?
+      </p>
+      <i> Hover/tap here to see the video.</i>
+      </p>
+      </td>
+    </tr>
     </table>
 
-    <div style="width:100%;position:relative;margin-left:20px;margin-right:20px;" class="table-like hiddenPubs" onmouseout="gif_stop('RLV_image', 'RLV_gif')" onmouseover="gif_start('RLV_image', 'RLV_gif')">
-      <div style="width:25%;position:relative;margin-top:20px;margin-bottom:20px">
-        <div class="one">
-        <div class="two" id='RLV_image'><img src='images/RLV_after.gif' width="160" ></div>
-        <img id='RLV_gif' src='images/RLV_before.png' width="160" style="z-index:-1">
-        </div>
-      </div>
-      <div style="width:75%;position:relative" valign="top">
-          <a href="https://arxiv.org/pdf/2011.06507.pdf">
-          <papertitle>Reinforcement Learning with Videos: Combining Offline Observations with Interaction</papertitle>
-          </a>
-          <br>
-          <a href="https://sites.google.com/view/karlschmeckpeper">Karl Schmeckpeper</a>, <strong>Oleh Rybkin</strong>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>,  <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>, <a href="https://ai.stanford.edu/~cbfinn/">Chelsea Finn</a> </br>
-          <i> Conference on Robot Learning (CoRL)</i>, 2020 (<oral>oral presentation</oral>, 4% acceptance rate)<br>
+    <!-- Reading -->
+    <table width="100%" align="center" border="0" cellpadding="20" cellspacing='0'>
+    <tr>
+      <td width="100%">
+      <heading>Science reading list</heading>
+      <p>
+      This is a list some books and shorter papers that changed my understanding of the field of AI and science in general. I hope you might find this useful too! The list is evolving, and suggestions for new reading material are welcome. </br> </br>
+        Books: </br>
+        <a href="https://books.google.com/books/about/Surely_You_re_Joking_Mr_Feynman_Adventur.html?id=7papZR4oVssC">
+        <!-- <papertitle>Surely You're Joking, Mr. Feynman!</papertitle></a>, Richard P. Feynman. </br> -->
+        <a href="https://www.amazon.com/Structure-Scientific-Revolutions-Thomas-Kuhn/dp/0226458083">
+        <papertitle>The Structure of Scientific Revolutions</papertitle></a>, Thomas S. Kuhn. </br>
+        <a href="https://mitpress.mit.edu/books/vision">
+        <papertitle>Vision</papertitle></a>, David C. Marr. </br> </br>
 
-          <a href="https://sites.google.com/view/rl-with-videos">project page & videos</a> / <a href ="https://arxiv.org/abs/2011.06507">arXiv</a> / <a href="https://www.youtube.com/watch?v=aIWr4fhzPFA"> talk (5 minutes) </a> / <a href="https://github.com/kschmeckpeper/rl_with_videos">code</a>
-          <br>
-        </p>
-        <p> We use offline observations of humans jointly with online robot interaction data in a joint reinforcement learning algortihm. The resulting approach is able to learn from real-world human videos to solve challenging robotic tasks.</p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
-      </div>
-    </div>
-
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="00">
-      <tr onmouseout="GCP_stop()" onmouseover="GCP_start()">
-        <td width="25%">
-          <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
-          <div class="two" id = 'GCP_image'><img src='GCP_after.gif'width="160"></div>
-          <img id = 'GCP_gif' src='GCP_before.jpeg' width="160"    style="z-index:-1">
-          </div>
-          <script type="text/javascript">
-          function GCP_start() {
-          document.getElementById('GCP_image').style.opacity = "1";
-          document.getElementById('GCP_gif').style.opacity = "0";
-          }
-          function GCP_stop() {
-          document.getElementById('GCP_image').style.opacity = "0";
-          document.getElementById('GCP_gif').style.opacity = "1";
-          }
-          GCP_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://arxiv.org/pdf/2006.13205.pdf">
-          <papertitle>Long-Horizon Visual Planning with Goal-Conditioned Hierarchical Predictors</papertitle>
-          </a>
-          <br>
-          <a href="https://kpertsch.github.io/">Karl Pertsch</a>*, <strong>Oleh Rybkin</strong>*, <a href="https://febert.github.io/">Frederik Ebert</a>, <a href="http://people.eecs.berkeley.edu/~cbfinn/">Chelsea Finn</a>, <a href="https://www.seas.upenn.edu/~dineshj/">Dinesh Jayaraman</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
-          <i>Neural Information Processing Systems (NeurIPS)</i>, 2020<br>
-          <!-- <i>Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI at ICML</i>, 2019<br> -->
-
-          <a href="https://orybkin.github.io/video-gcp/">project page & videos</a> / <a href ="https://arxiv.org/abs/2006.13205">arXiv</a> / <a href="https://www.youtube.com/watch?v=axXx-x86IeY&feature=emb_logo">demo video (1 minute)</a> / <a href="https://youtu.be/w32twGTWvDU">talk (5 minutes)</a> / <a href="https://github.com/orybkin/video-gcp">code</a>
-          <br>
-        </p>
-        <p> We propose a hierarchical goal-conditioned predictive model that is able to scale to very long horizon visual prediction (more than 500 frames). Leveraging the model, we also propose a hierarchical visual planning algorithm that is effective at long-horizon control.</p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
-        </td>
-      </tr>
+        Short works: </br>
+        <a href="https://phil415.pbworks.com/f/TuringComputing.pdf">
+        <papertitle>Computing Machinery and Intelligence</papertitle></a>, Alan M. Turing. </br>
+        <a href="http://www.gatsby.ucl.ac.uk/~pel/misc/stupidity.html">
+        <papertitle>The importance of stupidity in scientific research</papertitle></a>, Martin A. Schwartz. </br>
+        <a href="https://www.cs.virginia.edu/~robins/YouAndYourResearch.html">
+        <papertitle>You and Your Research</papertitle></a>, Richard W. Hamming. </br>
+        <a href="https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/">
+        <papertitle>As we may think</papertitle></a>, Vannevar Bush. </br>
+        <a href="https://arxiv.org/abs/2004.05107">
+        <papertitle>Levels of Analysis for Machine Learning</papertitle></a>, Jessica Hamrick, Shakir Mohamed. </br>
 
 
-      <tr onmouseout="SSA_stop()" onmouseover="SSA_start()">
-        <td width="25%">
-          <div class="one">
-          <div class="two" id = 'SSA_image' ><img src='SSA_after.gif' width="160" height="160"></div>
-          <img id = 'SSA_gif' src='SSA_before.png' width="160" height="160" style="z-index:-1">
-          </div>
-          <script type="text/javascript">
-          function SSA_start() {
-          document.getElementById('SSA_image').style.opacity = "1";
-          document.getElementById('SSA_gif').style.opacity = "0";
-          }
-          function SSA_stop() {
-          document.getElementById('SSA_image').style.opacity = "0";
-          document.getElementById('SSA_gif').style.opacity = "1";
-          }
-          SSA_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://arxiv.org/pdf/1912.12773.pdf">
-          <papertitle>Learning Predictive Models From Observation and Interaction</papertitle>
-          </a>
-          <br>
-          <a href="https://sites.google.com/view/karlschmeckpeper">Karl Schmeckpeper</a>, <a href="https://anxie.github.io/">Annie Xie</a>, <strong>Oleh Rybkin</strong>, <a href="https://s-tian.github.io/">Stephen Tian</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>,  <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>, <a href="https://ai.stanford.edu/~cbfinn/">Chelsea Finn</a> </br>
+      </p>
+      </td>
+    </table>
 
-          <i>European Conference on Computer Vision (ECCV)</i>, 2020<br>
-          <!-- <i>Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI at ICML</i>, 2019<br> -->
-
-          <a href="https://sites.google.com/view/lpmfoai">project page & videos</a> / <a href ="https://arxiv.org/abs/1912.12773">arXiv</a> / <a href="https://www.youtube.com/watch?v=jWbwh4uZFgU">demo video (1 minute)</a> / <a href="https://www.youtube.com/watch?v=V_yLQtnS5YE">talk (8 minutes)</a> / <a href ="https://drive.google.com/file/d/1gE8hXP6NEFpoUtpAPH60NkjrzEjCc-Sj/view">workshop version</a>
-          <br>
-        </p>
-        <p>  We are able to learn action representations that generalize between robot data and passive observations of other agents (e.g. humans). This enables the use of additional diverse sources of data to train models for visual robotic control. </p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
-        </td>
-      </tr>
-
-      <tr onmouseout="P2E_stop()" onmouseover="P2E_start()">
-        <td width="25%">
-          <div class="one">
-          <div class="two" id = 'P2E_image'><img src='P2E_after.gif' width="160" height="160"></div>
-          <img id = 'P2E_gif' src='P2E_before.png' width="160" height="160" style="z-index:-1">
-          </div>
-          <script type="text/javascript">
-          function P2E_start() {
-          document.getElementById('P2E_image').style.opacity = "1";
-          document.getElementById('P2E_gif').style.opacity = "0";
-          }
-          function P2E_stop() {
-          document.getElementById('P2E_image').style.opacity = "0";
-          document.getElementById('P2E_gif').style.opacity = "1";
-          }
-          P2E_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://arxiv.org/pdf/2005.05960.pdf">
-          <papertitle>Planning to Explore via Self-Supervised World Models</papertitle>
-          </a>
-          <br>
-          <a href="https://ramanans1.github.io/">Ramanan Sekar*</a>, <strong>Oleh Rybkin*</strong>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://people.eecs.berkeley.edu/~pabbeel/">Pieter Abbeel</a>, <a href="https://danijar.com">Danijar Hafner</a>, <a href="https://people.eecs.berkeley.edu/~pathak/">Deepak Pathak</a> <br>
-
-          <i>International Conference on Machine Learning (ICML)</i>, 2020<br>
-          <!-- <i>Workshop on BeTR-RL at ICLR</i>, 2020<br> -->
-
-          <a href="https://ramanans1.github.io/plan2explore/">project page & videos</a> / <a href ="https://arxiv.org/abs/2005.05960">arXiv</a> / <a href="https://www.youtube.com/watch?v=GftqnPWsCWw&feature=emb_logo">demo video (2 minutes)</a> / <a href="https://www.youtube.com/watch?v=gan79mAVfq8">talk (10 minutes)</a> / <a href="https://venturebeat.com/2020/05/13/plan2explore-adapts-to-exploration-tasks-without-fine-tuning/">VentureBeat</a> / <a href="https://blog.ml.cmu.edu/2020/10/06/plan2explore/">blog</a> /
-           <a href="https://github.com/ramanans1/plan2explore">code</a>
-
-
-          <br>
-        </p>
-        <p> We propose a visual model-based agent for self-supervised reinforcement learning. Our agent is able to adapt in a zero/few-shot setup, achieving comparable performance to supervised state-of-the-art RL. </p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
-        </td>
-      </tr>
-
-      <tr class="hiddenPubs" onmouseout="KeyIn_stop()" onmouseover="KeyIn_start()">
-        <td width="25%">
-          <div class="one">
-          <div class="two" id = 'KeyIn_image'><img src='KeyIn_after.gif' width="160" height="160"></div>
-          <img id = 'KeyIn_gif' src='KeyIn_before.png' width="160" height="160" style="z-index:-1">
-          </div>
-          <script type="text/javascript">
-          function KeyIn_start() {
-          document.getElementById('KeyIn_image').style.opacity = "1";
-          document.getElementById('KeyIn_gif').style.opacity = "0";
-          }
-          function KeyIn_stop() {
-          document.getElementById('KeyIn_image').style.opacity = "0";
-          document.getElementById('KeyIn_gif').style.opacity = "1";
-          }
-          KeyIn_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://arxiv.org/pdf/1904.05869.pdf">
-          <papertitle>Keyframing the Future: Keyframe Discovery for Visual Prediction and Planning</papertitle>
-          </a>
-          <br>
-          <a href="https://kpertsch.github.io/">Karl Pertsch</a>*,  <strong>Oleh Rybkin</strong>*, <a href="https://www.linkedin.com/in/yjy0625/">Jingyun Yang</a>, <a href="https://github.com/AZdet">Shenghao Zhou</a>, <a href="http://www.scs.ryerson.ca/kosta/">Kosta Derpanis</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="http://www-bcf.usc.edu/~limjj/">Joseph Lim</a>, <a href="http://www.drewjaegle.com/">Andrew Jaegle</a><br>
-
-          <i>Conference on Learning for Dynamics and Control (L4DC)</i>, 2020<br>
-
-          <a href ="https://sites.google.com/view/keyin">project page & videos</a> / <a href ="https://arxiv.org/abs/1904.05869">arXiv</a> / <a href ="KeyIn_poster.pdf">poster</a> / <a href="https://docs.google.com/presentation/d/154jEGsWOStl46DvZvam3HVTGyi8KslLy8lP6ClkiEE8/edit?usp=sharing">slides</a> / <a href="https://www.youtube.com/watch?v=e2hVV5FDKf8&feature=emb_logo">talk (5 minutes)</a>
-          <br>
-        </p>
-        <p> We discover keyframes in videos by learning to select frames that enable prediction of the entire sequence. By using the keyframe structure of the data for prediction, our method is further able to perform planning for longer horizons.</p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
-        </td>
-      </tr>
-
-
-      <!--
-      <tr onmouseout="Surprise_stop()" onmouseover="Surprise_start()">
-        <td width="25%">
-          <div class="one">
-          <div class="two" id = 'Surprise_image'><img src='Surprise_after.gif' width="160" height="160"></div>
-          <img src='Surprise_before.png' width="160" height="160">
-          </div>
-          <script type="text/javascript">
-          function Surprise_start() {
-          document.getElementById('Surprise_image').style.opacity = "1";
-          }
-          function Surprise_stop() {
-          document.getElementById('Surprise_image').style.opacity = "0";
-          }
-          Surprise_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://drive.google.com/file/d/1ec2d1URU4oVS4xM2QZzpYy5jQ67zpenX/view">
-          <papertitle>Perception-Driven Curiosity with Bayesian Surprise</papertitle>
-          </a>
-          <br>
-          <a href="https://bucherb.github.io/">Bernadette Bucher</a>, <a href="https://www.linkedin.com/in/anton-arapin-9494b616b">Anton Arapin</a>, <a href="https://www.linkedin.com/in/ramanansekar">Ramanan Sekar</a>, <a href="https://www.linkedin.com/in/feifei-duan-607255125">Feifei Duan</a>, <a href="https://www.ocf.berkeley.edu/~badger/">Marc Badger</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <strong>Oleh Rybkin</strong></br>
-
-
-          <i>Workshop on Combining Learning and Reasoning at RSS</i>, 2019<br>
-
-          <a href ="https://drive.google.com/file/d/1ec2d1URU4oVS4xM2QZzpYy5jQ67zpenX/view">paper</a> /
-          <a href ="Surprise_poster.pdf">poster</a> /
-          <a href="https://sites.google.com/view/rss19-learning-and-reasoning">workshop page</a>
-          <br>
-        </p>
-        <p> We learn a latent variable model for dynamics of image observations, and use it to construct an agent that maximizes Bayesian surprise of the future frames. The Bayesian agent can perform exploration that is more robust in stochastic environments than simpler prior prediction schemes. </p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
-        </td>
-      </tr> -->
-
-      <tr class="hiddenPubs"  onmouseout="CLASP_stop()" onmouseover="CLASP_start()">
-        <td width="25%">
-          <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
-          <!-- <div class="two" id = 'CLASP_image'><img src='CLASP_after.gif'width="160"></div> -->
-          <img id = 'CLASP_gif' src='images/CLASP.png' width="160"    style="z-index:-1">
-          </div>
-          <!-- <script type="text/javascript">
-          function CLASP_start() {
-          document.getElementById('CLASP_image').style.opacity = "1";
-          document.getElementById('CLASP_gif').style.opacity = "0";
-          }
-          function CLASP_stop() {
-          document.getElementById('CLASP_image').style.opacity = "0";
-          document.getElementById('CLASP_gif').style.opacity = "1";
-          }
-          CLASP_stop()
-          </script> -->
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://openreview.net/pdf?id=SylPMnR9Ym">
-          <papertitle>Learning what you can do before doing anything</papertitle>
-          </a>
-          <br>
-          <strong>Oleh Rybkin</strong>*, <a href="https://kpertsch.github.io/">Karl Pertsch</a>*,  <a href="http://www.scs.ryerson.ca/kosta/">Kosta Derpanis</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="http://www.drewjaegle.com/">Andrew Jaegle</a><br>
-          <i>International Conference on Learning Representations (ICLR)</i>, 2019<br>
-          <a href ="https://daniilidis-group.github.io/learned_action_spaces/">project page & videos</a> / <a href ="https://openreview.net/pdf?id=SylPMnR9Ym">paper</a> / <a href ="https://arxiv.org/abs/1806.09655">arXiv</a> /
-          <a href ="CLASP_poster.pdf">poster</a> /
-          <a href="https://docs.google.com/presentation/d/1sGfvcLdEl_BAlPqtoTPchxKNnBDiiCWuzRSz4lWH07E/edit?usp=sharing">slides</a>
-          <br>
-        </p>
-        <p> We learn to discover an agent's action space along with a dynamics model from pure video data. The model can be used for model predictive control, requiring orders of magnitude fewer action-annotated videos than other methods.</p>
-        <p>
-        <!-- <i> Hover/tap here to see the video.</i></p>
-        </p> -->
-        </td>
-      </tr>
-
-      <!-- <tr onmouseout="transformational_stop()" onmouseover="transformational_start()" >
-        <td width="25%">
-          <div class="one">
-          <div class="two" id = 'transformational_image'><img src='transformational_after.gif' width="160" height="160"></div>
-          <img src='transformational_before.png' width="160" height="160">
-          </div>
-          <script type="text/javascript">
-          function transformational_start() {
-          document.getElementById('transformational_image').style.opacity = "1";
-          }
-          function transformational_stop() {
-          document.getElementById('transformational_image').style.opacity = "0";
-          }
-          transformational_stop()
-          </script>
-        </td>
-        <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://arxiv.org/pdf/1803.09760.pdf">
-          <papertitle>Predicting the Future with Transformational States</papertitle>
-          </a>
-          <br>
-          <a href="http://www.drewjaegle.com/">Andrew Jaegle</a>, <strong>Oleh Rybkin</strong>, <a href="http://www.scs.ryerson.ca/kosta/">Kosta Derpanis</a>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a><br>
-          <em>ArXiv</em>, 2018<br>
-          <a href ="        https://daniilidis-group.github.io/transformational_states/">project page & videos</a> /
-          <a href ="https://arxiv.org/abs/1803.09760">arXiv</a>
-        </p>
-        <p>The model predicts future video frames by learning to represent the present state of a system together with a high-level transformation that is used to produce its future state.</p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </td>
-      </tr> -->
-      </table>
-
-      <!-- Blog -->
-      <table class="hiddenPubs" width="100%" align="center" border="0" cellpadding="20">
+    <!-- Undergraduate -->
+    <table width="100%" align="center" border="0" cellpadding="20" cellspacing='0'>
       <tr>
-        <td>
-        <heading>Blog</heading>
-        </td>
-      </tr>
-          <tr onmouseout="pixel_metrics_stop()" onmouseover="pixel_metrics_start()" >
-            <td width="25%">
-              <div class="one">
-              <div class="two" id = 'pixel_metrics_image'><img src='pixel_metrics_after.gif' width="160" height="160"></div>
-              <img src='pixel_metrics_before.png' width="160" height="160">
-              </div>
-              <script type="text/javascript">
-              function pixel_metrics_start() {
-              document.getElementById('pixel_metrics_image').style.opacity = "1";
-              }
-              function pixel_metrics_stop() {
-              document.getElementById('pixel_metrics_image').style.opacity = "0";
-              }
-              pixel_metrics_stop()
-              </script>
-        <td width="75%" valign="top">
+      <td>
+        <heading>Undergraduate/Master's students</heading>
         <p>
-          <a href="https://medium.com/@olegrybkin_20684/the-reasonable-ineffectiveness-of-mse-pixel-loss-for-future-prediction-and-what-to-do-about-it-4dca8152355d">
-          <papertitle>The reasonable ineffectiveness of pixel metrics for future prediction</papertitle>
-        </a> </br>
-          2018
-        <p>
-          MSE loss and its variants are commonly used for training and evaluation of future prediction. But is this the right thing to do?
+          I am actively looking for students who are strongly motivated to work on a research project, including students who want to do a Master's thesis. Check out some of my work above and if you find it interesting, do send me an email!
         </p>
-        <i> Hover/tap here to see the video.</i>
-        </p>
-        </td>
+
+        <table width="100%" align="center" border="0" cellpadding="2" cellspacing='0'>
+          <tr>
+            <td width="40%" align="right" style="vertical-align: top;">
+              Current:
+            </td>
+            <td align="left">
+              <ul style="list-style-type:none;">
+                <li><a href="https://www.seas.upenn.edu/~zchuning/">Chuning Zhu</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td width="40%" align="right" style="vertical-align: top;">
+              Past (current affiliation):
+            </td>
+            <td align="left">
+              <ul style="list-style-type:none;">
+                <li><a href="https://github.com/WeiyuDu">Weiyu Du</a></li>
+                <li><a href="https://github.com/AZdet">Shenghao Zhou</a>  (PhD @ UPenn)</li>
+                <li><a href="https://ramanans1.github.io/">Ramanan Sekar</a> (ML SWE @ Qualcomm) </li>
+                <li><a href="https://www.linkedin.com/in/anton-arapin-9494b616b">Anton Arapin</a> (MS @ UChicago)</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </td>
       </tr>
-      </table>
 
-      <!-- Reading -->
-      <table width="100%" align="center" border="0" cellpadding="20" cellspacing='0'>
-      <tr>
-        <td width="100%">
-        <heading>Science reading list</heading>
-        <p>
-        This is a list some books and shorter papers that changed my understanding of the field of AI and science in general. I hope you might find this useful too! The list is evolving, and suggestions for new reading material are welcome. </br> </br>
-          Books: </br>
-          <a href="https://books.google.com/books/about/Surely_You_re_Joking_Mr_Feynman_Adventur.html?id=7papZR4oVssC">
-          <!-- <papertitle>Surely You're Joking, Mr. Feynman!</papertitle></a>, Richard P. Feynman. </br> -->
-          <a href="https://www.amazon.com/Structure-Scientific-Revolutions-Thomas-Kuhn/dp/0226458083">
-          <papertitle>The Structure of Scientific Revolutions</papertitle></a>, Thomas S. Kuhn. </br>
-          <a href="https://mitpress.mit.edu/books/vision">
-          <papertitle>Vision</papertitle></a>, David C. Marr. </br> </br>
-
-          Short works: </br>
-          <a href="https://phil415.pbworks.com/f/TuringComputing.pdf">
-          <papertitle>Computing Machinery and Intelligence</papertitle></a>, Alan M. Turing. </br>
-          <a href="http://www.gatsby.ucl.ac.uk/~pel/misc/stupidity.html">
-          <papertitle>The importance of stupidity in scientific research</papertitle></a>, Martin A. Schwartz. </br>
-          <a href="https://www.cs.virginia.edu/~robins/YouAndYourResearch.html">
-          <papertitle>You and Your Research</papertitle></a>, Richard W. Hamming. </br>
-          <a href="https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/">
-          <papertitle>As we may think</papertitle></a>, Vannevar Bush. </br>
-          <a href="https://arxiv.org/abs/2004.05107">
-          <papertitle>Levels of Analysis for Machine Learning</papertitle></a>, Jessica Hamrick, Shakir Mohamed. </br>
-
-
-        </p>
-        </td>
-      </table>
-
-      <!-- Undergraduate -->
-      <table width="100%" align="center" border="0" cellpadding="20" cellspacing='0'>
-        <tr>
-        <td>
-          <heading>Undergraduate/Master's students</heading>
-          <p>
-            I am actively looking for students who are strongly motivated to work on a research project, including students who want to do a Master's thesis. Check out some of my work above and if you find it interesting, do send me an email!
-          </p>
-
-          <table width="100%" align="center" border="0" cellpadding="2" cellspacing='0'>
-            <tr>
-              <td width="40%" align="right" style="vertical-align: top;">
-                Current:
-              </td>
-              <td align="left">
-                <ul style="list-style-type:none;">
-                  <li><a href="https://www.seas.upenn.edu/~zchuning/">Chuning Zhu</a></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td width="40%" align="right" style="vertical-align: top;">
-                Past (current affiliation):
-              </td>
-              <td align="left">
-                <ul style="list-style-type:none;">
-                  <li><a href="https://github.com/WeiyuDu">Weiyu Du</a></li>
-                  <li><a href="https://github.com/AZdet">Shenghao Zhou</a>  (PhD @ UPenn)</li>
-                  <li><a href="https://ramanans1.github.io/">Ramanan Sekar</a> (ML SWE @ Qualcomm) </li>
-                  <li><a href="https://www.linkedin.com/in/anton-arapin-9494b616b">Anton Arapin</a> (MS @ UChicago)</li>
-                </ul>
-              </td>
-            </tr>
-          </table>
-        </td>
-        </tr>
-
-      </table>
-      <hr>
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tr>
-        <td>
-        <p align="center">
-          <font size="2">
-          Inspired by <a href="https://jonbarron.info/">this</strong></a> template. Hosted on Eniac.
-	    </font>
-        </p>
-        </td>
-      </tr>
-      </table>
+    </table>
+    <hr>
+    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+    <tr>
+      <td>
+      <p align="center">
+        <font size="2">
+        Inspired by <a href="https://jonbarron.info/">this</strong></a> template. Hosted on Eniac.
+    </font>
+      </p>
+      </td>
+    </tr>
+    </table>
     </td>
     </tr>
   </table>

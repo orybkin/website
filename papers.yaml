@@ -1,11 +1,262 @@
 papers:
-  - name: "latco"
+  - name: latco
     title:
-      link: "https://arxiv.org/pdf/2106.13229.pdf"
-      name: "Model-Based Reinforcement Learning via Latent-Space Collocation"
-    authors: "<strong>Oleh Rybkin</strong>*, <a href=\"https://www.seas.upenn.edu/~zchuning/\">Chuning Zhu</a>*, <a href=\"https://www.linkedin.com/in/anusha-nagabandi-a4923bba\">Anusha Nagabandi</a>,  <a href=\"http://www.cis.upenn.edu/~kostas/\">Kostas Daniilidis</a>, <a href=\"https://twitter.com/imordatch\">Igor Mordatch</a>, <a href=\"https://people.eecs.berkeley.edu/~svlevine/\">Sergey Levine</a>"
+      link: https://arxiv.org/pdf/2106.13229.pdf
+      name: Model-Based Reinforcement Learning via Latent-Space Collocation
+    authors:
+      - me: true
+        star: true
+      - name: Chuning Zhu
+        href: https://www.seas.upenn.edu/~zchuning/
+        star: true
+      - name: Anusha Nagabandi
+        href: https://www.linkedin.com/in/anusha-nagabandi-a4923bba
+      - name: Kostas Daniilidis
+        href: http://www.cis.upenn.edu/~kostas
+      - name: Igor Mordatch
+        href: https://twitter.com/imordatch
+      - name: Sergey Levine
+        href: https://people.eecs.berkeley.edu/~svlevine
     conference:
-      name: "International Conference on Machine Learning (ICML)"
+      name: International Conference on Machine Learning (ICML)
       year: 2021
-    links: "<a href=\"https://orybkin.github.io/latco/\">project page & videos</a> / <a href =\"https://arxiv.org/abs/2106.13229\">arXiv</a> /  <a href=\"https://www.youtube.com/watch?v=skc0e4KYNcw\"> talk (5 minutes) </a> /  <a href=\"https://github.com/zchuning/latco\">code</a>"
-    description: "Our planner, LatCo, solves multi-stage long-horizon tasks much harder than those considered previously. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective plans."
+    links:
+      - name: project page & videos
+        href: https://orybkin.github.io/latco/
+      - name: arXiv
+        href: https://arxiv.org/abs/2106.13229
+      - name: talk (5 minutes)
+        href: https://www.youtube.com/watch?v=skc0e4KYNcw
+      - name: code
+        href: https://github.com/zchuning/latco
+    description: Our planner, LatCo, solves multi-stage long-horizon tasks much harder than those considered previously. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective plans.
+    highlighted: true
+
+  - name: sigma
+    title:
+      link: https://arxiv.org/pdf/2006.13202.pdf
+      name: Simple and Effective VAE Training with Calibrated Decoders
+    authors:
+      - me: true
+      - name: Kostas Daniilidis
+        href: http://www.cis.upenn.edu/~kostas
+      - name: Sergey Levine
+        href: https://people.eecs.berkeley.edu/~svlevine
+    conference:
+      name: International Conference on Machine Learning (ICML)
+      year: 2021
+    links:
+      - name: project page & videos
+        href: https://orybkin.github.io/sigma-vae/
+      - name: arXiv
+        href: https://arxiv.org/abs/2006.13202
+      - name: code
+        href: https://github.com/orybkin/sigma-vae
+    description: Commonly used uncalibrated decoders adversely affect training of VAEs and sequence VAEs. However, learning appropriate calibrated decoders produces better samples, is simple to implement, and does not require the common heuristic weight on the KL divergence term.
+    highlighted: true
+
+  - name: RLV
+    title:
+      link: https://arxiv.org/pdf/2011.06507.pdf
+      name: "Reinforcement Learning with Videos: Combining Offline Observations with Interaction"
+    authors:
+      - name: Karl Schmeckpeper
+        hre: https://sites.google.com/view/karlschmeckpeper
+      - me: true
+      - name: Kostas Daniilidis
+        href: http://www.cis.upenn.edu/~kostas
+      - name: Sergey Levine
+        href: https://people.eecs.berkeley.edu/~svlevine
+      - name: Chelsea Finn
+        href: https://ai.stanford.edu/~cbfinn/
+    conference:
+      name: Conference on Robot Learning (CoRL)
+      year: 2020 (<oral>oral presentation</oral>, 4% acceptance rate)
+    links:
+      - name: project page & videos
+        href: https://sites.google.com/view/rl-with-videos
+      - name: arXiv
+        href: https://arxiv.org/abs/2011.06507
+      - name: talk (5 minutes)
+        href: https://www.youtube.com/watch?v=aIWr4fhzPFA
+      - name: code
+        href: https://github.com/kschmeckpeper/rl_with_videos
+    description: We use offline observations of humans jointly with online robot interaction data in a joint reinforcement learning algortihm. The resulting approach is able to learn from real-world human videos to solve challenging robotic tasks.
+
+  - name: GCP
+    title:
+      link: https://arxiv.org/pdf/2006.13205.pdf
+      name: Long-Horizon Visual Planning with Goal-Conditioned Hierarchical Predictors
+    authors:
+      - name: Karl Pertsch
+        href: https://kpertsch.github.io/
+        star: true
+      - me: true
+        star: true
+      - name: Frederik Ebert
+        href: https://febert.github.io
+      - name: Chelsea Finn
+        href: https://ai.stanford.edu/~cbfinn/
+      - name: Dinesh Jayaraman
+        href: https://www.seas.upenn.edu/~dineshj
+      - name: Sergey Levine
+        href: https://people.eecs.berkeley.edu/~svlevine
+    conference:
+      name: Neural Information Processing Systems (NeurIPS)
+      year: 2020
+    links:
+      - name: project page & videos
+        href: https://orybkin.github.io/video-gcp/
+      - name: arXiv
+        href: https://arxiv.org/abs/2006.13205
+      - name: demo video (1 minute)
+        href: https://www.youtube.com/watch?v=axXx-x86IeY&feature=emb_logo
+      - name: talk (5 minutes)
+        href: https://youtu.be/w32twGTWvDU
+      - name: code
+        href: https://github.com/orybkin/video-gcp
+    description: We propose a hierarchical goal-conditioned predictive model that is able to scale to very long horizon visual prediction (more than 500 frames). Leveraging the model, we also propose a hierarchical visual planning algorithm that is effective at long-horizon control.
+    highlighted: true
+
+  - name: SSA
+    title:
+      link: https://arxiv.org/pdf/1912.12773.pdf
+      name: Learning Predictive Models From Observation and Interaction
+    authors:
+      - name: Karl Schmeckpeper
+        hre: https://sites.google.com/view/karlschmeckpeper
+      - name: Annie Xie
+        href: https://anxie.github.io
+      - me: true
+      - name: Stephen Tian
+        href: https://s-tian.github.io
+      - name: Kostas Daniilidis
+        href: http://www.cis.upenn.edu/~kostas
+      - name: Sergey Levine
+        href: https://people.eecs.berkeley.edu/~svlevine
+      - name: Chelsea Finn
+        href: https://ai.stanford.edu/~cbfinn/
+    conference:
+      name: European Conference on Computer Vision (ECCV)
+      year: 2020
+    links:
+      - name: project page & videos
+        href: https://sites.google.com/view/lpmfoai
+      - name: arXiv
+        href: https://arxiv.org/abs/1912.12773
+      - name: demo video (1 minute)
+        href: https://www.youtube.com/watch?v=jWbwh4uZFgU
+      - name: talk (5 minutes)
+        href: https://www.youtube.com/watch?v=V_yLQtnS5YE
+      - name: workshop version
+        href: https://drive.google.com/file/d/1gE8hXP6NEFpoUtpAPH60NkjrzEjCc-Sj/view
+    description:  We are able to learn action representations that generalize between robot data and passive observations of other agents (e.g. humans). This enables the use of additional diverse sources of data to train models for visual robotic control.
+    highlighted: true
+
+  - name: P2E
+    title:
+      link: https://arxiv.org/pdf/2005.05960.pdf
+      name: Planning to Explore via Self-Supervised World Models
+    authors:
+      - name: Ramanan Sekar
+        href: https://ramanans1.github.io/
+        star: true
+      - me: true
+        star: true
+      - name: Kostas Daniilidis
+        href: http://www.cis.upenn.edu/~kostas
+      - name: Pieter Abbeel
+        href: https://people.eecs.berkeley.edu/~pabbeel/
+      - name: https://danijar.com
+        href: Danijar Hafner
+      - name: Deepak Pathak
+        href: https://people.eecs.berkeley.edu/~pathak/
+    conference:
+      name: International Conference on Machine Learning (ICML)
+      year: 2020
+    links:
+      - name: project page & videos
+        href: https://ramanans1.github.io/plan2explore/
+      - name: arXiv
+        href: https://arxiv.org/abs/2005.05960
+      - name: demo video (2 minutes)
+        href: https://www.youtube.com/watch?v=GftqnPWsCWw&feature=emb_logo
+      - name: talk (10 minutes)
+        href: https://www.youtube.com/watch?v=gan79mAVfq8
+      - name: VentureBeat
+        href: https://venturebeat.com/2020/05/13/plan2explore-adapts-to-exploration-tasks-without-fine-tuning/
+      - name: blog
+        href: https://blog.ml.cmu.edu/2020/10/06/plan2explore/
+      - name: code
+        href: https://github.com/ramanans1/plan2explore
+    description: We propose a visual model-based agent for self-supervised reinforcement learning. Our agent is able to adapt in a zero/few-shot setup, achieving comparable performance to supervised state-of-the-art RL.
+    highlighted: true
+
+  - name: KeyIn
+    title:
+      link: https://arxiv.org/pdf/1904.05869.pdf
+      name: "Keyframing the Future: Keyframe Discovery for Visual Prediction and Planning"
+    authors:
+      - name: Karl Pertsch
+        href: https://kpertsch.github.io/
+        star: true
+      - me: true
+        star: true
+      - name: Jingyun Yang
+        href: https://www.linkedin.com/in/yjy0625
+      - name: Shenghao Zhou
+        href: https://github.com/AZdet
+      - name: Kosta Derpanis
+        href: http://www.scs.ryerson.ca/kosta/
+      - name: Kostas Daniilidis
+        href: http://www.cis.upenn.edu/~kostas
+      - name: Joseph Lim
+        href: http://www-bcf.usc.edu/~limjj/
+      - name: Andrew Jaegle
+        href: http://www.drewjaegle.com/
+    conference:
+      name: Conference on Learning for Dynamics and Control (L4DC)
+      year: 2020
+    links:
+      - name: project page & videos
+        href: https://sites.google.com/view/keyin
+      - name: arXiv
+        href: https://arxiv.org/abs/1904.05869
+      - name: poster
+        href: KeyIn_poster.pdf
+      - name: slides
+        href: https://docs.google.com/presentation/d/154jEGsWOStl46DvZvam3HVTGyi8KslLy8lP6ClkiEE8/edit?usp=sharing
+      - name: talk (5 minutes)
+        href: https://www.youtube.com/watch?v=e2hVV5FDKf8&feature=emb_logo
+    description: We discover keyframes in videos by learning to select frames that enable prediction of the entire sequence. By using the keyframe structure of the data for prediction, our method is further able to perform planning for longer horizons.
+
+  - name: CLASP
+    title:
+      link: https://openreview.net/pdf?id=SylPMnR9Ym
+      name: Learning what you can do before doing anything
+    authors:
+      - me: true
+        star: true
+      - name: Karl Pertsch
+        href: https://kpertsch.github.io/
+        star: true
+      - name: Kosta Derpanis
+        href: http://www.scs.ryerson.ca/kosta/
+      - name: Kostas Daniilidis
+        href: http://www.cis.upenn.edu/~kostas
+      - name: Andrew Jaegle
+        href: http://www.drewjaegle.com/
+    conference:
+      name: International Conference on Learning Representations (ICLR)
+      year: 2019
+    links:
+      - name: project page & videos
+        href: https://daniilidis-group.github.io/learned_action_spaces/
+      - name: paper
+        href: https://openreview.net/pdf?id=SylPMnR9Ym
+      - name: poster
+        href: CLASP_poster.pdf
+      - name: slides
+        href: https://docs.google.com/presentation/d/1sGfvcLdEl_BAlPqtoTPchxKNnBDiiCWuzRSz4lWH07E/edit?usp=sharing
+    description: We learn to discover an agent's action space along with a dynamics model from pure video data. The model can be used for model predictive control, requiring orders of magnitude fewer action-annotated videos than other methods.
+    nogif: true
