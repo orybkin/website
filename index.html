@@ -53,6 +53,8 @@
     width: 160px;
     height: 160px;
     position: relative;
+    display:table-cell;
+    vertical-align:middle;
     }
     .two
     {
@@ -126,6 +128,17 @@
          else
              e.style.display = 'none';
      }
+  </script>
+  <!-- Gif toggles -->
+  <script>
+  function gif_start(image, gif) {
+    document.getElementById(image).style.opacity = "1";
+    document.getElementById(gif).style.opacity = "0";
+  }
+  function gif_stop(image, gif) {
+    document.getElementById(image).style.opacity = "0";
+    document.getElementById(gif).style.opacity = "1";
+  }
   </script>
 
   <!-- Selected publications toggle -->
@@ -285,49 +298,29 @@
         <a style="font-size:17px" id='all_pub_button' href="javascript:pubs_on()">All</a>)
       </font>
     </div>
-    <!-- TODO make hover still work -->
-    <!-- TODO but only on the active buttons -->
     <!-- make non-visible default -->
     <!-- TODO: redo all below as divs, then the slide effect will also show -->
     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="400">
 
-      <tr onmouseout="latco_stop()" onmouseover="latco_start()">
+      <tr onmouseout="gif_stop('latco_image', 'latco_gif')" onmouseover="gif_start('latco_image', 'latco_gif')">
         <td width="25%">
-          <div class="one" style="width:160;height:160;display:table-cell;vertical-align:middle;">
-          <div class="two" id = 'latco_image'><img src='images/latco_after.gif' width="160" ></div>
-          <img id = 'latco_gif' src='images/latco_before.png' width="160" style="z-index:-1">
+          <div class="one">
+          <div class="two" id='latco_image'><img src='images/latco_after.gif' width="160" ></div>
+          <img id='latco_gif' src='images/latco_before.png' width="160" style="z-index:-1">
           </div>
-          <script type="text/javascript">
-          function latco_start() {
-          document.getElementById('latco_image').style.opacity = "1";
-          document.getElementById('latco_gif').style.opacity = "0";
-          }
-          function latco_stop() {
-          document.getElementById('latco_image').style.opacity = "0";
-          document.getElementById('latco_gif').style.opacity = "1";
-          }
-          latco_stop()
-          </script>
         </td>
         <td width="75%" valign="top">
-        <p>
-        <p>
-          <a href="https://arxiv.org/pdf/2106.13229.pdf">
-          <papertitle>Model-Based Reinforcement Learning via Latent-Space Collocation</papertitle>
-          </a>
-          <br>
+          <p><a href="https://arxiv.org/pdf/2106.13229.pdf"><papertitle>Model-Based Reinforcement Learning via Latent-Space Collocation</papertitle></a></br>
+
           <strong>Oleh Rybkin</strong>*, <a href="https://www.seas.upenn.edu/~zchuning/">Chuning Zhu</a>*, <a href="https://www.linkedin.com/in/anusha-nagabandi-a4923bba">Anusha Nagabandi</a>,  <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://twitter.com/imordatch">Igor Mordatch</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
+
           <i>International Conference on Machine Learning (ICML)</i>, 2021<br>
-          <!-- <i>Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI at ICML</i>, 2019<br> -->
 
+          <a href="https://orybkin.github.io/latco/">project page & videos</a> / <a href ="https://arxiv.org/abs/2106.13229">arXiv</a> /  <a href="https://www.youtube.com/watch?v=skc0e4KYNcw"> talk (5 minutes) </a> /  <a href="https://github.com/zchuning/latco">code</a></p>
 
-          <a href="https://orybkin.github.io/latco/">project page & videos</a> / <a href ="https://arxiv.org/abs/2106.13229">arXiv</a> /  <a href="https://www.youtube.com/watch?v=skc0e4KYNcw"> talk (5 minutes) </a> /  <a href="https://github.com/zchuning/latco">code</a>
-          <br>
-        </p>
-        <p> Our planner, LatCo, solves multi-stage long-horizon tasks much harder than those considered previously. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective plans. </p>
-        <p>
-        <i> Hover/tap here to see the video.</i></p>
-        </p>
+          <p> Our planner, LatCo, solves multi-stage long-horizon tasks much harder than those considered previously. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective plans. </p>
+
+          <i> Hover/tap here to see the video.</i>
         </td>
       </tr>
 
@@ -358,8 +351,6 @@
           <br>
           <strong>Oleh Rybkin</strong>, <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a></br>
           <i>International Conference on Machine Learning (ICML)</i>, 2021<br>
-          <!-- <i>Workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI at ICML</i>, 2019<br> -->
-
 
           <a href="https://orybkin.github.io/sigma-vae/">project page & videos</a> / <a href ="https://arxiv.org/abs/2006.13202">arXiv</a> / <a href="https://github.com/orybkin/sigma-vae">code</a>
           <br>
