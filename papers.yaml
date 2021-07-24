@@ -1,4 +1,60 @@
 papers:
+  - name: LEXA
+    title:
+      link: https://orybkin.github.io/lexa/resources/paper.pdf
+      name: Discovering and Achieving Goals with World Models
+    authors:
+      - name: Russell Mendonca
+        href: https://www.youtube.com/watch?v=4FcbqixiFXw&feature=emb_logo
+        star: true
+      - me: true
+        star: true
+      - name: Kostas Daniilidis
+        href: http://www.cis.upenn.edu/~kostas
+      - name: Danijar Hafner
+        href: https://danijar.com/
+      - name: Deepak Pathak
+        href: https://www.cs.cmu.edu/~dpathak/
+    conference:
+      name: ICML Workshop on Unsupervised RL
+      year: 2021 (<oral>oral presentation</oral>, 6% acceptance rate) </br> <i>ICML Workshop on Self-Supervised Learning</i>, 2021 (<oral>oral presentation</oral>)
+      # URL is 3 out of 47 submissions, 6.3%
+      # The other workshop has 16% acceptance rate or lower: 7 out of 43 accepted posters
+    links:
+      - name: project page & videos
+        href: https://orybkin.github.io/lexa/
+      - name: pdf
+        href: https://orybkin.github.io/lexa/resources/paper.pdf
+      - name: oral talk (13 minutes)
+        href: https://www.youtube.com/watch?v=4FcbqixiFXw
+    description: Latent Explorer Achiever (LEXA) is an unsupervised agent that uses world models to discover visual goals (Explorer) and learn to reach them (Achiever). With forward-looking exploration, LEXA solves hard tasks previously only solved with demonstrations or rewards.
+    highlighted: true
+    nogif: true
+
+  - name: roboaware
+    title:
+      link: https://arxiv.org/pdf/2107.09047.pdf
+      name: "Know Thyself: Transferable Visuomotor Control Through Robot-Awareness"
+    authors:
+      - name: Edward S. Hu
+        href: https://edwardshu.com/
+      - name: Kun Huang
+        href: https://voyager1998.github.io/
+      - me: true
+      - name: Dinesh Jayaraman
+        href: https://www.seas.upenn.edu/~dineshj/
+    conference:
+      name: Preprint
+      year: 2021
+    links:
+      - name: project page & videos
+        href: https://hueds.github.io/rac/
+      - name: arXiv
+        href: https://arxiv.org/abs/2107.09047
+      - name: talk (5 minutes)
+        href: https://www.youtube.com/watch?v=Q_9u6B54iAc
+    description: Through self-awareness, our robots learn separate robot and world dynamics, enabling better cost functions for visual MBRL and zero-shot transfer from a single robot to multiple other robots.
+
   - name: latco
     title:
       link: https://arxiv.org/pdf/2106.13229.pdf
@@ -25,6 +81,8 @@ papers:
         href: https://orybkin.github.io/latco/
       - name: arXiv
         href: https://arxiv.org/abs/2106.13229
+      - name: poster
+        href: images/latco_poster.pdf
       - name: talk (5 minutes)
         href: https://www.youtube.com/watch?v=skc0e4KYNcw
       - name: code
@@ -50,6 +108,10 @@ papers:
         href: https://orybkin.github.io/sigma-vae/
       - name: arXiv
         href: https://arxiv.org/abs/2006.13202
+      - name: poster
+        href: images/sigma_poster.pdf
+      - name: talk (5 minutes)
+        href: https://www.youtube.com/watch?v=6UMzH68RwGM
       - name: code
         href: https://github.com/orybkin/sigma-vae
     description: Commonly used uncalibrated decoders adversely affect training of VAEs and sequence VAEs. However, learning appropriate calibrated decoders produces better samples, is simple to implement, and does not require the common heuristic weight on the KL divergence term.
@@ -115,7 +177,7 @@ papers:
         href: https://youtu.be/w32twGTWvDU
       - name: code
         href: https://github.com/orybkin/video-gcp
-    description: We propose a hierarchical goal-conditioned predictive model that is able to scale to very long horizon visual prediction (more than 500 frames). Leveraging the model, we also propose a hierarchical visual planning algorithm that is effective at long-horizon control.
+    description: Using hierarchical goal-conditioned predictive models, we scale to very long horizon prediction of more than 500 frames. The model is also useful for hierarchical visual planning and long-horizon control.
     highlighted: true
 
   - name: SSA
@@ -150,7 +212,7 @@ papers:
         href: https://www.youtube.com/watch?v=V_yLQtnS5YE
       - name: workshop version
         href: https://drive.google.com/file/d/1gE8hXP6NEFpoUtpAPH60NkjrzEjCc-Sj/view
-    description:  We are able to learn action representations that generalize between robot data and passive observations of other agents (e.g. humans). This enables the use of additional diverse sources of data to train models for visual robotic control.
+    description:  We learn action representations that generalize between robot data and passive observations of other agents (e.g. humans). This enables the use of additional diverse sources of data to train models for visual robotic control.
     highlighted: true
 
   - name: P2E
@@ -167,10 +229,10 @@ papers:
         href: http://www.cis.upenn.edu/~kostas
       - name: Pieter Abbeel
         href: https://people.eecs.berkeley.edu/~pabbeel/
-      - name: https://danijar.com
-        href: Danijar Hafner
+      - name: Danijar Hafner
+        href: https://danijar.com/
       - name: Deepak Pathak
-        href: https://people.eecs.berkeley.edu/~pathak/
+        href: https://www.cs.cmu.edu/~dpathak/
     conference:
       name: International Conference on Machine Learning (ICML)
       year: 2020
@@ -189,7 +251,7 @@ papers:
         href: https://blog.ml.cmu.edu/2020/10/06/plan2explore/
       - name: code
         href: https://github.com/ramanans1/plan2explore
-    description: We propose a visual model-based agent for self-supervised reinforcement learning. Our agent is able to adapt in a zero/few-shot setup, achieving comparable performance to supervised state-of-the-art RL.
+    description: By planning to explore, as opposed to exploring retrospectively, we significantly improve unsupervised agents. Our agent is able to adapt in a zero/few-shot setup from images, achieving comparable performance to the many-shot oracle.
     highlighted: true
 
   - name: KeyIn
@@ -260,3 +322,16 @@ papers:
         href: https://docs.google.com/presentation/d/1sGfvcLdEl_BAlPqtoTPchxKNnBDiiCWuzRSz4lWH07E/edit?usp=sharing
     description: We learn to discover an agent's action space along with a dynamics model from pure video data. The model can be used for model predictive control, requiring orders of magnitude fewer action-annotated videos than other methods.
     nogif: true
+
+  - name: pixel_metrics
+    title:
+      link: https://medium.com/@olegrybkin_20684/the-reasonable-ineffectiveness-of-mse-pixel-loss-for-future-prediction-and-what-to-do-about-it-4dca8152355d
+      name: The reasonable ineffectiveness of pixel metrics for future prediction
+    authors:
+      - me: true
+    conference:
+      name: Blog post
+      year: 2018
+    links:
+    description: MSE loss and its variants are commonly used for training and evaluation of future prediction. But is this the right thing to do?
+    highlighted: false
