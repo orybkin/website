@@ -2,10 +2,10 @@ papers:
   - name: LEXA
     title:
       link: https://orybkin.github.io/lexa/resources/paper.pdf
-      name: Discovering and Achieving Goals with World Models
+      name: Discovering and Achieving Goals via World Models
     authors:
       - name: Russell Mendonca
-        href: https://www.youtube.com/watch?v=4FcbqixiFXw&feature=emb_logo
+        href: https://russellmendonca.github.io/
         star: true
       - me: true
         star: true
@@ -19,15 +19,17 @@ papers:
       name: ICML Workshop on Unsupervised RL
       year: 2021 (<oral>oral presentation</oral>, 6% acceptance rate) </br> <i>ICML Workshop on Self-Supervised Learning</i>, 2021 (<oral>oral presentation</oral>)
       # URL is 3 out of 47 submissions, 6.3%
-      # The other workshop has 16% acceptance rate or lower: 7 out of 43 accepted posters
+      # The other workshop has 13% acceptance rate or lower: 7 out of 52 accepted posters
     links:
       - name: project page & videos
         href: https://orybkin.github.io/lexa/
       - name: pdf
         href: https://orybkin.github.io/lexa/resources/paper.pdf
-      - name: oral talk (13 minutes)
+      - name: poster
+        href: images/lexa_poster.pdf
+      - name: talk (13 min)
         href: https://www.youtube.com/watch?v=4FcbqixiFXw
-    description: Latent Explorer Achiever (LEXA) is an unsupervised agent that uses world models to discover visual goals (Explorer) and learn to reach them (Achiever). With forward-looking exploration, LEXA solves hard tasks previously only solved with demonstrations or rewards.
+    description: Latent Explorer Achiever (LEXA) discovers visual goals and learns to reach them in imagination, without any supervision. With forward-looking exploration, LEXA solves hard tasks previously only solved with demonstrations or rewards.
     highlighted: true
     nogif: true
 
@@ -51,7 +53,7 @@ papers:
         href: https://hueds.github.io/rac/
       - name: arXiv
         href: https://arxiv.org/abs/2107.09047
-      - name: talk (5 minutes)
+      - name: talk (5 min)
         href: https://www.youtube.com/watch?v=Q_9u6B54iAc
     description: Through self-awareness, our robots learn separate robot and world dynamics, enabling better cost functions for visual MBRL and zero-shot transfer from a single robot to multiple other robots.
 
@@ -83,11 +85,11 @@ papers:
         href: https://arxiv.org/abs/2106.13229
       - name: poster
         href: images/latco_poster.pdf
-      - name: talk (5 minutes)
+      - name: talk (5 min)
         href: https://www.youtube.com/watch?v=skc0e4KYNcw
       - name: code
         href: https://github.com/zchuning/latco
-    description: Our planner, LatCo, solves multi-stage long-horizon tasks much harder than those considered previously. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective plans.
+    description: Our planner, LatCo, solves multi-stage long-horizon tasks where prior work fails. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective visual plans.
     highlighted: true
 
   - name: sigma
@@ -110,11 +112,11 @@ papers:
         href: https://arxiv.org/abs/2006.13202
       - name: poster
         href: images/sigma_poster.pdf
-      - name: talk (5 minutes)
+      - name: talk (5 min)
         href: https://www.youtube.com/watch?v=6UMzH68RwGM
       - name: code
         href: https://github.com/orybkin/sigma-vae
-    description: Commonly used uncalibrated decoders adversely affect training of VAEs and sequence VAEs. However, learning appropriate calibrated decoders produces better samples, is simple to implement, and does not require the common heuristic weight on the KL divergence term.
+    description: Commonly used uncalibrated decoders adversely affect VAE training. However, learning appropriate calibrated decoders yields better samples, is simple to implement, and does not require the common heuristic weight on the KL divergence.
     highlighted: true
 
   - name: RLV
@@ -139,7 +141,7 @@ papers:
         href: https://sites.google.com/view/rl-with-videos
       - name: arXiv
         href: https://arxiv.org/abs/2011.06507
-      - name: talk (5 minutes)
+      - name: talk (5 min)
         href: https://www.youtube.com/watch?v=aIWr4fhzPFA
       - name: code
         href: https://github.com/kschmeckpeper/rl_with_videos
@@ -171,9 +173,9 @@ papers:
         href: https://orybkin.github.io/video-gcp/
       - name: arXiv
         href: https://arxiv.org/abs/2006.13205
-      - name: demo video (1 minute)
+      - name: video (1 min)
         href: https://www.youtube.com/watch?v=axXx-x86IeY&feature=emb_logo
-      - name: talk (5 minutes)
+      - name: talk (5 min)
         href: https://youtu.be/w32twGTWvDU
       - name: code
         href: https://github.com/orybkin/video-gcp
@@ -206,9 +208,9 @@ papers:
         href: https://sites.google.com/view/lpmfoai
       - name: arXiv
         href: https://arxiv.org/abs/1912.12773
-      - name: demo video (1 minute)
+      - name: video (1 minute)
         href: https://www.youtube.com/watch?v=jWbwh4uZFgU
-      - name: talk (5 minutes)
+      - name: talk (5 min)
         href: https://www.youtube.com/watch?v=V_yLQtnS5YE
       - name: workshop version
         href: https://drive.google.com/file/d/1gE8hXP6NEFpoUtpAPH60NkjrzEjCc-Sj/view
@@ -241,9 +243,9 @@ papers:
         href: https://ramanans1.github.io/plan2explore/
       - name: arXiv
         href: https://arxiv.org/abs/2005.05960
-      - name: demo video (2 minutes)
+      - name: video (2 min)
         href: https://www.youtube.com/watch?v=GftqnPWsCWw&feature=emb_logo
-      - name: talk (10 minutes)
+      - name: talk (10 min)
         href: https://www.youtube.com/watch?v=gan79mAVfq8
       - name: VentureBeat
         href: https://venturebeat.com/2020/05/13/plan2explore-adapts-to-exploration-tasks-without-fine-tuning/
@@ -285,10 +287,10 @@ papers:
       - name: arXiv
         href: https://arxiv.org/abs/1904.05869
       - name: poster
-        href: KeyIn_poster.pdf
+        href: images/KeyIn_poster.pdf
       - name: slides
         href: https://docs.google.com/presentation/d/154jEGsWOStl46DvZvam3HVTGyi8KslLy8lP6ClkiEE8/edit?usp=sharing
-      - name: talk (5 minutes)
+      - name: talk (5 min)
         href: https://www.youtube.com/watch?v=e2hVV5FDKf8&feature=emb_logo
     description: We discover keyframes in videos by learning to select frames that enable prediction of the entire sequence. By using the keyframe structure of the data for prediction, our method is further able to perform planning for longer horizons.
 
@@ -317,7 +319,7 @@ papers:
       - name: paper
         href: https://openreview.net/pdf?id=SylPMnR9Ym
       - name: poster
-        href: CLASP_poster.pdf
+        href: images/CLASP_poster.pdf
       - name: slides
         href: https://docs.google.com/presentation/d/1sGfvcLdEl_BAlPqtoTPchxKNnBDiiCWuzRSz4lWH07E/edit?usp=sharing
     description: We learn to discover an agent's action space along with a dynamics model from pure video data. The model can be used for model predictive control, requiring orders of magnitude fewer action-annotated videos than other methods.

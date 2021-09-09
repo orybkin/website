@@ -23,47 +23,51 @@
     }
     body,td,th,tr,p,a {
     font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 14px
+    /* font-family: 'Titillium Web', Verdana, Helvetica, sans-serif; */
+    font-size: 16px;
+    font-weight: 400;
     }
     strong {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 14px;
     }
     oral {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 14px;
     font-weight: bold;
     color: red;
     }
     heading {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     }
     papertitle {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 14px;
     font-weight: 700
     }
     name {
-    font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 32px;
+    font-size: 30px;
+    }
+    .zero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	  flex-direction: column;
+    height: 190px;
     }
     .one
     {
     width: 160px;
-    height: 160px;
+    /* height: 160px; */
     position: relative;
-    display:table-cell;
-    vertical-align:middle;
+    /* display: table-cell;
+    vertical-align: middle; */
     }
     .two
     {
     width: 160px;
-    height: 160px;
+    /* height: 160px; */
     position: absolute;
     transition: opacity .2s ease-in-out;
     -moz-transition: opacity .2s ease-in-out;
     -webkit-transition: opacity .2s ease-in-out;
+    }
+    .paper_img {
+    width: 160px;
     }
     .fade {
      transition: opacity .2s ease-in-out;
@@ -180,22 +184,14 @@
   <script type="text/javascript">
   function renderHello() {
     var template = document.getElementById('template').innerHTML;
-    // $.getJSON("papers.json", function(papers) {
-    //   var rendered = Mustache.render(template, papers);
-    //   document.getElementById('mustache_target').innerHTML = rendered;
-    // }).fail( function(d, textStatus, error) {
-    //     alert("getJSON failed, status: " + textStatus + ", error: "+error)
-    // });
     $.get("./papers.yaml").done(function(data) {
       try {
       papers = jsyaml.load(data)
-      // var rendered = Mustache.render(template, papers);
       var rendered = Handlebars.compile(template)(papers);
       document.getElementById('mustache_target').innerHTML = rendered;
       pubs_off_start()
       }
       catch(err) {
-        // alert(err.message);
       }
     });
   }
@@ -217,7 +213,7 @@
   </script>
 
   <!-- Intro & photo -->
-  <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
+  <table width="900" border="0" align="center" cellspacing="0" cellpadding="0">
     <tr>
     <td>
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
@@ -228,19 +224,8 @@
         </p>
         <p>Hi! I am <a href="https://en.wikipedia.org/wiki/Oleg">Oleh</a>, a Ph.D. student in the <a href="https://www.grasp.upenn.edu/">GRASP laboratory</a> at the University of Pennsylvania advised by <a href="http://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>. I work on visual model-based reinforcement learning. </p>
 
-        <!-- <p> I work on visual model-based reinforcement learning. Recently, I've been interested in self-supervised RL, hierarchical planning, modeling other agents, as well as probabilistic video models. </p> -->
-
         I am building agents that gain understanding of their environment by learning internal world models.
-        <!-- I believe that world models is crucial for such understanding to generalize to new situations and tasks. -->
         Recently, I've been working on unsupervised agents, long-horizon planning, and building better predictive models.
-
-        <!-- My recent work in this area is on <a href="https://ramanans1.github.io/plan2explore/">self-supervised</a> agents, <a href="https://sites.google.com/view/keyin">long-term</a> <a href="https://orybkin.github.io/video-gcp/">hierarchical</a> planning, <a href="https://sites.google.com/view/lpmfoai">understanding</a> <a href="https://daniilidis-group.github.io/learned_action_spaces/">others</a>, and understanding human motion and behavior. -->
-
-        <!-- I am interested in deep learning, computer vision, and robotics. Most of my recent work is on deep predictive models of videos. -->
-
-        <!-- <p>
-           Recently, I've been working on using deep predictive models to discover different kinds of semantic structure in video.
-        </p> -->
         <p>
           I received my bachelor's degree from <a href="https://www.cvut.cz/en">Czech Technical University in Prague</a>, where I worked with <a href="http://people.ciirc.cvut.cz/~pajdla/">Tomas Pajdla</a>. I've spent time at <a href="https://www.di.ens.fr/willow/">INRIA</a> with  <a href="http://www.di.ens.fr/~josef/">Josef Sivic</a>, <a href="https://www.titech.ac.jp/english/">TiTech</a> with <a href="http://www.ok.ctrl.titech.ac.jp/~torii/">Akihiko Torii</a>, and <a href="https://www.berkeley.edu/">UC Berkeley</a> with <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>, <a href="https://www.seas.upenn.edu/~dineshj/">Dinesh Jayaraman</a>, and <a href="http://people.eecs.berkeley.edu/~cbfinn/">Chelsea Finn</a>.
         </p>
@@ -261,7 +246,7 @@
         </p>
         </td>
         <td width="40%">
-        <img src="olehrybkin.png" width="100%" class="darkmode-ignore">
+        <img src="olehrybkin.png" width="100%">
         </td>
       </tr>
       </table>
@@ -296,44 +281,7 @@
               <!-- <li> <strong> Jun 2018</strong>: We presented our work at the <a target="_blank" href="https://sites.google.com/view/rss2018lair">LAIR workshop</a> at RSS 2018 in Pittsburgh. </li> -->
           </ul>
         </td>
-      <!-- </tr> -->
-    	<!-- </tbody> -->
       </table>
-
-
-      <!-- Research -->
-      <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tr>
-        <td width="100%" valign="middle">
-
-        </td>
-      </tr>
-      </table> -->
-          <!-- <heading>Research</heading> -->
-
-            <!-- I am broadly interested in designing learning algorithms with properties of human intelligence. For that, I subscribe to the machine learning formalism, but I also believe that working on the ecological problems such as the ones in computer vision and robotics is crucial to make progress towards intelligence. -->
-
-             <!-- which includes problems in artificial intelligence, machine perception, and cognitive robotics. -->
-            <!-- I am broadly interested in neural network models as computational models of intelligence, which includes problems in artificial intelligence, machine perception, and cognitive robotics. -->
-
-            <!-- My general interest is in creating neural network models that advance our computational understanding of cognition,   -->
-            <!-- As one approach to this, I am also interested in designing algorithms that have certain properties of human intelligence missing from current AI methods,  -->
-            <!-- which is broad and encompasses problems in artificial intelligence, machine perception, and cognitive robotics.  -->
-
-            <!-- My recent interests are in temporal representation learning through generative and predictive models. Specifically, I've been working toward making machines understand phenomena like <a href="https://daniilidis-group.github.io/learned_action_spaces/">agent</a> <a href="https://drive.google.com/file/d/1gE8hXP6NEFpoUtpAPH60NkjrzEjCc-Sj/view"> motion</a>, <a href ="https://daniilidis-group.github.io/transformational_states/">physics</a>, and <a href ="https://arxiv.org/abs/1904.05869">interesting moments</a> <a href ="https://drive.google.com/file/d/1HWAlH-bElxjZeiDsxu9FHbDPLkIWAF7V/view">in time</a> through video prediction, and make use of this undertanding for control. I am also interested in <a href="https://drive.google.com/file/d/1ec2d1URU4oVS4xM2QZzpYy5jQ67zpenX/view">intrinsic motivation</a> and understanding human behavior through prediction. -->
-
-
-            <!-- During my bachelor's, I worked on camera geometry for structure from motion and proposed an <a href="https://github.com/orybkin/Bachelor-Thesis">algorithm</a> for robust estimation of camera focal length. Check out this and my <a href="https://github.com/orybkin/Autonomous-turtle">other</a> <a href="https://github.com/orybkin/Tesseract">fun</a> projects on my <a href="https://github.com/orybkin">GitHub</a> page. -->
-
-            <!-- <a href ="https://daniilidis-group.github.io/transformational_states/">physics</a>,  -->
-            <!-- I am interested in building agents that are capable of predicting the future and using the prediction capability to act in the world. I believe that using vision as sensing modality is crucial for making such agents general purpose, and that the probabilistic prediction formalism will continue yielding progress towards this goal. My recent work in this area is on <a href="https://ramanans1.github.io/plan2explore/">self-supervised</a> machines, <a href="https://sites.google.com/view/keyin">long</a>-<a href="https://orybkin.github.io/video-gcp/">term</a> hierarchical planning, <a href="https://sites.google.com/view/lpmfoai">understanding</a> other <a href="https://daniilidis-group.github.io/learned_action_spaces/">agents</a>, and understanding human motion and behavior. -->
-
-
-      <!-- <div style="width:100%; text-align=left; margin-left:20;">
-        <heading>Preprints</heading>
-      </div>
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20" margin-top="400">
-    </table> -->
 
     <div style="width:100%; text-align=left; margin-left:20;">
       <heading>Publications</heading>
@@ -342,23 +290,25 @@
         <a style="font-size:17px" id='all_pub_button' href="javascript:pubs_on()">All</a>)
       </font>
     </div>
-    <!-- TODO make non-visible default so that it doesn't show during loading -->
 
     <div id="mustache_target">Loading...</div>
-    <!-- <script id="template" type="x-tmpl-mustache"> -->
     <script id="template" type="text/x-handlebars-template">
       {{#papers}}
-      <div style="width:100%;margin-left:20px;margin-right:20px" class="table-like {{#unless highlighted}}hiddenPubs{{/unless}}" onmouseout="gif_stop('{{name}}_image', '{{name}}_gif')" onmouseover="gif_start('{{name}}_image', '{{name}}_gif')">
-        <div style="width:25%;margin-top:20px;margin-bottom:20px">
+      <div style="width:100%;margin-left:0px;margin-right:0px;" class="table-like {{#unless highlighted}}hiddenPubs{{/unless}}" onmouseout="gif_stop('{{name}}_image', '{{name}}_gif')" onmouseover="gif_start('{{name}}_image', '{{name}}_gif')">
+        <div class="zero" style="width:25%;margin-top:5px">
+        <!-- <div style="width:25%;margin-top:20px;margin-bottom:20px"> -->
           <div class="one">
           {{#unless nogif}}
-          <div class="two" id='{{name}}_image'><img src='images/{{name}}_after.gif' width="160"></div>
+          <div class="two" id='{{name}}_image'><img src='images/{{name}}_after.gif' class="paper_img"></div>
           {{/unless}}
-          <img id='{{name}}_gif' src='images/{{name}}_before.png' width="160" style="z-index:-1">
+          <img id='{{name}}_gif' src='images/{{name}}_before.png' class="paper_img" style="z-index:-1">
+          {{#unless nogif}}
+          {{/unless}}
           </div>
+          <p style="text-align: center;margin-top:0.4em;margin-bottom:0em;color:Gray;"><i> Hover/tap to play the gif</i></p>
         </div>
-        <div style="width:70%" valign="top">
-          <p><a href={{title.link}}><papertitle>{{title.name}}</papertitle></a></br>
+        <div style="width:75%" valign="top">
+          <p><a  href={{title.link}}><papertitle>{{title.name}}</papertitle></a></br>
           {{#authors}}
           {{#if me}}
             <strong>Oleh Rybkin</strong>{{#if star}}*{{/if}}{{#unless @last}}, {{/unless}}
@@ -374,10 +324,9 @@
           {{/links}}</p>
 
           <p>{{description}}</p>
-
-          {{#unless nogif}}
-          <p><i> Hover/tap here to see the video.</i></p>
-          {{/unless}}
+          <!-- {{#unless nogif}}
+          <p><i> Hover/tap here to play the gif.</i></p>
+          {{/unless}} -->
         </div>
       </div>
       {{/papers}}
@@ -447,7 +396,7 @@
             </td>
             <td align="left">
               <ul style="list-style-type:none;">
-                <li><a href="https://github.com/WeiyuDu">Weiyu Du</a></li>
+                <li><a href="https://github.com/WeiyuDu">Weiyu Du</a> (ML Eng @ Nuro)</li>
                 <li><a href="https://github.com/AZdet">Shenghao Zhou</a>  (PhD @ UPenn)</li>
                 <li><a href="https://ramanans1.github.io/">Ramanan Sekar</a> (ML SWE @ Qualcomm) </li>
                 <li><a href="https://www.linkedin.com/in/anton-arapin-9494b616b">Anton Arapin</a> (MS @ UChicago)</li>
