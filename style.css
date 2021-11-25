@@ -1,0 +1,119 @@
+/* Font and color stuff */
+/* Color scheme stolen from Sergey Karayev */
+a {
+color: #1772d0;
+text-decoration:none;
+}
+.black_link {
+color: Black;
+text-decoration:none;
+}
+a:focus, a:hover {
+color: #f09228;
+text-decoration:none;
+}
+/* toggling stuff */
+.toggled:hover, .toggled:active, .toggled:link, .toggled:visited  {
+color: black;
+text-decoration:underline;
+cursor: text;
+}
+body,td,th,tr,p,a {
+font-family: 'Lato', Verdana, Helvetica, sans-serif;
+/* font-family: 'Titillium Web', Verdana, Helvetica, sans-serif; */
+font-size: 16px;
+font-weight: 400;
+/* this fixes text size on mobile */
+/* text-size-adjust: 200%; */
+/* text-size-adjust: none; */
+}
+strong {
+}
+oral {
+font-weight: bold;
+color: red;
+}
+heading {
+font-size: 20px;
+}
+papertitle {
+font-weight: 700
+}
+name {
+font-size: 30px;
+}
+.fade {
+ transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+span.highlight {
+    background-color: #ffffd0;
+}
+
+
+/*  Image,gif divs formatting */
+.zero {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+/* height: 190px; */
+}
+.one
+{
+/* width: 160px; */
+/* height: 160px; */
+position: relative;
+/* display: table-cell;
+vertical-align: middle; */
+}
+.two
+{
+/* width: 160px; */
+/* height: 160px; */
+position: absolute;
+transition: opacity .2s ease-in-out;
+-moz-transition: opacity .2s ease-in-out;
+-webkit-transition: opacity .2s ease-in-out;
+}
+.paper_img {
+/* width: 160px; */
+max-width: 100%;
+}
+/* @media only screen and (max-width: 590px) {
+  .paper_title {
+    text-align: center;
+  }
+} */
+
+
+/* Sizing */
+body {
+  /* margin-left: 8px;
+  margin-right: 8px; */
+  /* position: absolute; */
+  /* width:100vw; */
+}
+
+
+/* Util classes */
+.table-like {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+
+/* Niceties */
+img {
+  border-radius: 15px;
+}
+hr
+{
+  border: 0;
+  height: 1px;
+  max-width: 1100px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
