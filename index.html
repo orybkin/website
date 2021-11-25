@@ -61,12 +61,17 @@
   <!-- Gif toggles -->
   <script>
   function gif_start(image, gif) {
-    document.getElementById(image).style.opacity = "1";
-    document.getElementById(gif).style.opacity = "0";
+    // Reset gif to play from the beginning
+    gif_elem = document.getElementById(gif)
+    var src = gif_elem.src;
+    gif_elem.src = ""
+    gif_elem.src = src
+    document.getElementById(image).style.opacity = "0";
+    // gif_elem.style.opacity = "1";
   }
   function gif_stop(image, gif) {
-    document.getElementById(image).style.opacity = "0";
-    document.getElementById(gif).style.opacity = "1";
+    document.getElementById(image).style.opacity = "1";
+    // document.getElementById(gif).style.opacity = "0";
   }
   </script>
 
@@ -206,13 +211,13 @@
     <div id="mustache_target">Loading...</div>
     <script id="template" type="text/x-handlebars-template">
       {{#papers}}
-      <div style="width:100%;margin-left:0px;margin-right:0px;margin-top:10px;flex-wrap:wrap-reverse; " class="table-like {{#unless highlighted}}hiddenPubs{{/unless}}" onmouseout="gif_stop('{{name}}_image', '{{name}}_gif')" onmouseover="gif_start('{{name}}_image', '{{name}}_gif')">
+      <div style="width:100%;margin-left:0px;margin-right:0px;margin-top:10px;flex-wrap:wrap-reverse; " class="table-like {{#unless highlighted}}hiddenPubs{{/unless}}" onmouseleave="gif_stop('{{name}}_image', '{{name}}_gif')" onmouseenter="gif_start('{{name}}_image', '{{name}}_gif')">
         <div class="zero" style="flex: 1 0 170px;margin-top:0px;margin-right:20px;max-width:270px">
           <div class="one">
           {{#unless nogif}}
-          <div class="two" id='{{name}}_image'><img src='images/{{name}}_after.gif' class="paper_img"></div>
+          <div class="two"><img id='{{name}}_gif' src='images/{{name}}_after.gif' class="paper_img"></div>
           {{/unless}}
-          <img id='{{name}}_gif' src='images/{{name}}_before.png' class="paper_img" style="z-index:-1">
+          <img id='{{name}}_image' src='images/{{name}}_before.png' class="paper_img" style="z-index:-1">
           </div>
           {{#unless nogif}}
           <p style="text-align: center;margin-top:0.4em;margin-bottom:0em;color:Gray;"><i> Hover/tap to play the gif</i></p>
