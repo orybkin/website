@@ -1,7 +1,7 @@
 papers:
   - name: LEXA
     title:
-      link: https://orybkin.github.io/lexa/resources/paper.pdf
+      link: https://arxiv.org/pdf/2110.09514.pdf
       name: Discovering and Achieving Goals via World Models
     authors:
       - name: Russell Mendonca
@@ -16,22 +16,26 @@ papers:
       - name: Deepak Pathak
         href: https://www.cs.cmu.edu/~dpathak/
     conference:
-      name: ICML Workshop on Unsupervised RL
-      year: 2021 (<oral>oral presentation</oral>, 6% acceptance rate) </br> <i>ICML Workshop on Self-Supervised Learning</i>, 2021 (<oral>oral presentation</oral>)
+      name: Neural Information Processing Systems (NeurIPS)
+      year: 2021 </br> <i>ICML Workshop on Unsupervised RL</i>, 2021 (<oral>oral presentation</oral>, 6% acceptance rate) </br> <i>ICML Workshop on Self-Supervised Learning</i>, 2021 (<oral>oral presentation</oral>)
       # URL is 3 out of 47 submissions, 6.3%
       # The other workshop has 13% acceptance rate or lower: 7 out of 52 accepted posters
     links:
       - name: project page & videos
         href: https://orybkin.github.io/lexa/
-      - name: pdf
-        href: https://orybkin.github.io/lexa/resources/paper.pdf
+      - name: arXiv
+        href: https://arxiv.org/abs/2110.09514
       - name: poster
         href: images/lexa_poster.pdf
+      - name: video (2 min)
+        href: https://www.youtube.com/watch?v=LnZj2lZYD3k
       - name: talk (13 min)
-        href: https://www.youtube.com/watch?v=4FcbqixiFXw
+        href: https://www.youtube.com/watch?v=WWHlQbigQp4
+      - name: code
+        href: https://github.com/orybkin/lexa
     description: Latent Explorer Achiever (LEXA) discovers visual goals and learns to reach them in imagination, without any supervision. With forward-looking exploration, LEXA solves hard tasks previously only solved with demonstrations or rewards.
     highlighted: true
-    nogif: true
+    nogif: false
 
   - name: roboaware
     title:
