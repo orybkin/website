@@ -1,4 +1,169 @@
 papers:
+  - name: qscaled
+    title:
+      link: https://arxiv.org/pdf/2502.04327.pdf
+      name: "Value-Based Deep RL Scales Predictably"
+    authors:
+      - me: true
+      - name: Michal Nauman
+        href: https://scholar.google.com/citations?user=GnEVRtQAAAAJ&hl=en
+      - name: Preston Fu
+        href: https://www.prestonfu.com/
+      - name: Charlie Snell
+        href: https://sea-snell.github.io/
+      - name: Pieter Abbeel
+        href: https://people.eecs.berkeley.edu/~pabbeel/
+      - name: Sergey Levine
+        href: https://people.eecs.berkeley.edu/~svlevine/
+      - name: Aviral Kumar
+        href: https://aviralkumar2907.github.io/
+    conference:
+      name: ArXiv
+      year: 2025
+    links:
+      - name: arXiv
+        href: https://arxiv.org/abs/2502.04327
+      - name: thread
+        href: https://x.com/_oleh/status/1889016893140516880
+    description: We build empirical models of the data-compute Pareto frontier, optimal resource allocation across data and compute, and hyperparameter dependencies for value-based RL. From small-scale runs, we can extrapolate towards higher data, compute, and performance. 
+    highlighted: true
+
+  - name: metra
+    title:
+      link: https://arxiv.org/pdf/2310.08887.pdf
+      name: "METRA: Scalable Unsupervised RL with Metric-Aware Abstraction"
+    authors:
+      - name: Seohong Park
+        href: https://seohong.me/
+      - me: true
+      - name: Sergey Levine
+        href: https://people.eecs.berkeley.edu/~svlevine/
+    conference:
+      name: International Conference on Learning Representations (ICLR)
+      year: 2024 (<oral>oral</oral>, 1% acceptance rate)
+    links:
+      - name: project page & videos
+        href: https://seohong.me/projects/metra/
+      - name: arXiv
+        href: https://arxiv.org/abs/2310.08887
+      - name: code
+        href: https://github.com/seohongpark/METRA
+    description: METRA is an unsupervised agent that scales to complex visual environments and diverse skills. It learns skills in a latent space using the temporal distance as a metric.
+    highlighted: true
+
+  - name: scaffolder
+    title:
+      link: https://openreview.net/pdf?id=EpVe8jAjdx
+      name: "Privileged Sensing Scaffolds Reinforcement Learning"
+    authors:
+      - name: Edward S. Hu
+        href: https://edwardshu.com/
+      - name: James Springer
+        href: https://www.grasp.upenn.edu/people/james-springer/
+      - me: true
+      - name: Dinesh Jayaraman
+        href: https://www.seas.upenn.edu/~dineshj/
+    conference:
+      name: International Conference on Learning Representations (ICLR)
+      year: 2024 (<oral>spotlight</oral>, 4% acceptance rate)
+    links:
+      - name: project page & videos
+        href: https://penn-pal-lab.github.io/scaffolder/
+      - name: arXiv
+        href: https://arxiv.org/abs/2405.14853
+      - name: code
+        href: https://github.com/penn-pal-lab/scaffolder
+    description: We study "sensory scaffolding" where privileged input improves training components but is not fed into the policy. Even with limited sensing, our Scaffolder agent can be robust and do information gathering.
+
+
+  - name: peg
+    title:
+      link: https://openreview.net/pdf?id=6qeBuZSo7Pr
+      name: "Planning Goals for Exploration"
+    authors:
+      - name: Edward S. Hu
+        href: https://edwardshu.com/
+      - name: Richard Chang
+        href: https://www.linkedin.com/in/richard-chang-bb5475168/
+      - me: true
+      - name: Dinesh Jayaraman
+        href: https://www.seas.upenn.edu/~dineshj/
+    conference:
+      name: International Conference on Learning Representations (ICLR)
+      year: 2023 (<oral>spotlight</oral>, 6% acceptance rate) </br> CoRL 2022 Roboadapt Workshop, (<oral>best paper award</oral>, 6% acceptance rate)
+    links:
+      - name: project page & videos
+        href: https://penn-pal-lab.github.io/peg/
+      - name: arXiv
+        href: https://arxiv.org/abs/2303.13002
+      - name: talk
+        href: https://iclr.cc/virtual/2023/poster/11390
+      - name: code
+        href: https://github.com/penn-pal-lab/peg
+      - name: colab
+        href: https://colab.research.google.com/drive/1mbr8HHjWAhTQHUP2Y-QOgByuOOXBpusD?usp=sharing
+    description: PEG uses world models to set exploratory goals that prompt the goal-conditioned policy to reach states with high exploration potential. This enables the agent to explore and solve challenging long-horizon tasks.
+    highlighted: true
+
+  - name: cascade
+    title:
+      link: https://proceedings.neurips.cc/paper_files/paper/2022/file/ab6a2c6ee757afe43882121281f6065c-Paper-Conference.pdf
+      name: "Learning General World Models in a Handful of Reward-Free Deployments"
+    authors:
+      - name: Yingchen Xu
+        star: True
+        href: https://yingchenxu.com/
+      - name: Jack Parker-Holder
+        star: True
+        href: https://jparkerholder.github.io/
+      - name: Aldo Pacchiano
+        star: True
+        href: https://www.aldopacchiano.ai/
+      - name: Phillip J. Ball
+        star: True
+        href: https://philipjball.github.io/
+      - me: true
+      - name: Stephen J. Roberts
+        href: https://www.robots.ox.ac.uk/~sjrob/
+      - name: Tim Rocktäschel
+        href: https://rockt.github.io/
+      - name: Edward Grefenstette
+        href: https://www.egrefen.com/
+    conference:
+      name: Neural Information Processing Systems (NeurIPS)
+      year: 2022
+    links:
+      - name: project page & videos
+        href: https://yingchenxu.com/cascade/
+      - name: arXiv
+        href: https://arxiv.org/abs/2210.12719
+    description: CASCADE trains a population of exploration agents by maximizing the diversity and information gathered by the population. It can explore and learn a world model without any supervision even with a limited number of deployments.
+
+  - name: roboaware
+    title:
+      link: https://openreview.net/pdf?id=o0ehFykKVtr
+      name: "Transferable Visual Control Policies Through Robot-Awareness"
+    authors:
+      - name: Edward S. Hu
+        href: https://edwardshu.com/
+      - name: Kun Huang
+        href: https://voyager1998.github.io/
+      - me: true
+      - name: Dinesh Jayaraman
+        href: https://www.seas.upenn.edu/~dineshj/
+    conference:
+      name: International Conference on Learning Representations (ICLR)
+      year: 2022 </br> <i>ICLR Workshop on Generalizable Policy Learning</i>, 2022 (<oral>oral presentation</oral>, 5% acceptance rate)
+    links:
+      - name: project page & videos
+        href: https://hueds.github.io/rac/
+      - name: arXiv
+        href: https://arxiv.org/abs/2107.09047
+      - name: talk (5 min)
+        href: https://www.youtube.com/watch?v=Q_9u6B54iAc
+    description: Through self-awareness, our robots learn separate robot and world dynamics, enabling better cost functions for visual MBRL and zero-shot transfer from a single robot to multiple other robots.
+    nofig: True
+
   - name: LEXA
     title:
       link: https://arxiv.org/pdf/2110.09514.pdf
@@ -35,31 +200,7 @@ papers:
         href: https://github.com/orybkin/lexa
     description: Latent Explorer Achiever (LEXA) discovers visual goals and learns to reach them in imagination, without any supervision. With forward-looking exploration, LEXA solves hard tasks previously only solved with demonstrations or rewards.
     highlighted: true
-    nogif: false
 
-  - name: roboaware
-    title:
-      link: https://arxiv.org/pdf/2107.09047.pdf
-      name: "Know Thyself: Transferable Visuomotor Control Through Robot-Awareness"
-    authors:
-      - name: Edward S. Hu
-        href: https://edwardshu.com/
-      - name: Kun Huang
-        href: https://voyager1998.github.io/
-      - me: true
-      - name: Dinesh Jayaraman
-        href: https://www.seas.upenn.edu/~dineshj/
-    conference:
-      name: Preprint
-      year: 2021
-    links:
-      - name: project page & videos
-        href: https://hueds.github.io/rac/
-      - name: arXiv
-        href: https://arxiv.org/abs/2107.09047
-      - name: talk (5 min)
-        href: https://www.youtube.com/watch?v=Q_9u6B54iAc
-    description: Through self-awareness, our robots learn separate robot and world dynamics, enabling better cost functions for visual MBRL and zero-shot transfer from a single robot to multiple other robots.
 
   - name: latco
     title:
@@ -94,7 +235,6 @@ papers:
       - name: code
         href: https://github.com/zchuning/latco
     description: Our planner, LatCo, solves multi-stage long-horizon tasks where prior work fails. By optimizing a sequence of future latent states instead of optimizing actions directly, it quickly discovers the high-reward region to create effective visual plans.
-    highlighted: true
 
   - name: sigma
     title:
@@ -183,6 +323,8 @@ papers:
         href: https://youtu.be/w32twGTWvDU
       - name: code
         href: https://github.com/orybkin/video-gcp
+      - name: review (Andrew Melnik)
+        href: https://www.youtube.com/watch?v=bbIQepxyaVw
     description: Using hierarchical goal-conditioned predictive models, we scale to very long horizon prediction of more than 500 frames. The model is also useful for hierarchical visual planning and long-horizon control.
     highlighted: true
 
@@ -340,4 +482,3 @@ papers:
       year: 2018
     links:
     description: MSE loss and its variants are commonly used for training and evaluation of future prediction. But is this the right thing to do?
-    highlighted: false
