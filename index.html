@@ -102,9 +102,10 @@
   <script type="text/javascript">
   function renderHello() {
     var template = document.getElementById('template').innerHTML;
-    $.get("./papers.yaml").done(function(data) {
+    $.get("./papers.yaml?timestamp=" + Date.now()).done(function(data) {
       try {
       papers = jsyaml.load(data)
+      console.log(papers)
       var rendered = Handlebars.compile(template)(papers);
       document.getElementById('mustache_target').innerHTML = rendered;
       pubs_off_start()
