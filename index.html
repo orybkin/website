@@ -86,6 +86,12 @@
     var e = document.getElementById('all_pub_button');
     e.classList.remove("toggled");
   }
+  function pubs_on_start() {
+    var e = document.getElementById('all_pub_button');
+    e.classList.add("toggled");
+    var e = document.getElementById('sel_pub_button');
+    e.classList.remove("toggled");
+  };
   function pubs_on() {
     $('.hiddenPubs').slideDown();
     var e = document.getElementById('all_pub_button');
