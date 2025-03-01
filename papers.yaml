@@ -1,4 +1,28 @@
 papers:
+  - name: video2policy
+    title:
+      link: https://arxiv.org/pdf/2502.09886.pdf
+      name: "Video2Policy: Scaling up Manipulation Tasks in Simulation through Internet Videos"
+    authors:
+      - name: Weirui Ye
+        href: https://yewr.github.io/
+      - name: Fangchen Liu
+        href: https://fangchenliu.github.io/
+      - name: Zheng Ding
+        href: https://scholar.google.com/citations?user=TOYBXFQAAAAJ&hl=en
+      - name: Yang Gao
+        href: https://yang-gao.weebly.com/
+      - me: true
+      - name: Pieter Abbeel
+        href: https://people.eecs.berkeley.edu/~pabbeel/
+    conference:
+      name: ArXiv
+      year: 2025
+    links:
+      - name: arXiv
+        href: https://arxiv.org/abs/2502.09886
+    description: We automatically convert internet videos to manipulation tasks for reinforcement learning. Objects, tasks, and rewards are reconstructed using foundation models.
+
   - name: qscaled
     title:
       link: https://arxiv.org/pdf/2502.04327.pdf
@@ -19,7 +43,7 @@ papers:
         href: https://aviralkumar2907.github.io/
     conference:
       name: ArXiv
-      year: 2025
+      year: 2025 </br> ICLR Robot Learning Workshop, 2025 (<oral>oral presentation</oral>) # acceptance rate 15#
     links:
       - name: arXiv
         href: https://arxiv.org/abs/2502.04327
@@ -90,7 +114,7 @@ papers:
         href: https://www.seas.upenn.edu/~dineshj/
     conference:
       name: International Conference on Learning Representations (ICLR)
-      year: 2023 (<oral>spotlight</oral>, 6% acceptance rate) </br> CoRL 2022 Roboadapt Workshop, (<oral>best paper award</oral>, 6% acceptance rate)
+      year: 2023 (<oral>spotlight</oral>, 6% acceptance rate) </br> CoRL Roboadapt Workshop, 2022 (<oral>best paper award</oral>, 6% acceptance rate)
     links:
       - name: project page & videos
         href: https://penn-pal-lab.github.io/peg/
