@@ -1,0 +1,4 @@
+archive/*
+images/archive/*
+*.DS_Store
+gtag.js

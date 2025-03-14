@@ -72,6 +72,8 @@ papers:
         href: https://arxiv.org/abs/2310.08887
       - name: code
         href: https://github.com/seohongpark/METRA
+      - name: talk
+        href: https://www.youtube.com/watch?v=2hIYvPT-ytQ
     description: METRA is an unsupervised agent that scales to complex visual environments and diverse skills. It learns skills in a latent space using the temporal distance as a metric.
     highlighted: true
 
@@ -136,7 +138,7 @@ papers:
     authors:
       - name: Yingchen Xu
         star: True
-        href: https://yingchenxu.com/
+        href: https://ai.meta.com/people/329825850069585/yingchen-xu/
       - name: Jack Parker-Holder
         star: True
         href: https://jparkerholder.github.io/
@@ -185,6 +187,8 @@ papers:
         href: https://arxiv.org/abs/2107.09047
       - name: talk (5 min)
         href: https://www.youtube.com/watch?v=Q_9u6B54iAc
+      - name: code
+        href: https://github.com/penn-pal-lab/robot-aware-control
     description: Through self-awareness, our robots learn separate robot and world dynamics, enabling better cost functions for visual MBRL and zero-shot transfer from a single robot to multiple other robots.
     nofig: True
 
@@ -234,7 +238,7 @@ papers:
       - me: true
         star: true
       - name: Chuning Zhu
-        href: https://www.seas.upenn.edu/~zchuning/
+        href: https://homes.cs.washington.edu/~zchuning/
         star: true
       - name: Anusha Nagabandi
         href: https://www.linkedin.com/in/anusha-nagabandi-a4923bba
@@ -345,10 +349,10 @@ papers:
         href: https://www.youtube.com/watch?v=axXx-x86IeY&feature=emb_logo
       - name: talk (5 min)
         href: https://youtu.be/w32twGTWvDU
-      - name: code
-        href: https://github.com/orybkin/video-gcp
       - name: review (Andrew Melnik)
         href: https://www.youtube.com/watch?v=bbIQepxyaVw
+      - name: code
+        href: https://github.com/orybkin/video-gcp
     description: Using hierarchical goal-conditioned predictive models, we scale to very long horizon prediction of more than 500 frames. The model is also useful for hierarchical visual planning and long-horizon control.
     highlighted: true
 
@@ -358,7 +362,7 @@ papers:
       name: Learning Predictive Models From Observation and Interaction
     authors:
       - name: Karl Schmeckpeper
-        hre: https://sites.google.com/view/karlschmeckpeper
+        href: https://sites.google.com/view/karlschmeckpeper
       - name: Annie Xie
         href: https://anxie.github.io
       - me: true
@@ -378,12 +382,12 @@ papers:
         href: https://sites.google.com/view/lpmfoai
       - name: arXiv
         href: https://arxiv.org/abs/1912.12773
+      - name: workshop version
+        href: https://drive.google.com/file/d/1gE8hXP6NEFpoUtpAPH60NkjrzEjCc-Sj/view
       - name: video (1 minute)
         href: https://www.youtube.com/watch?v=jWbwh4uZFgU
       - name: talk (5 min)
         href: https://www.youtube.com/watch?v=V_yLQtnS5YE
-      - name: workshop version
-        href: https://drive.google.com/file/d/1gE8hXP6NEFpoUtpAPH60NkjrzEjCc-Sj/view
     description:  We learn action representations that generalize between robot data and passive observations of other agents (e.g. humans). This enables the use of additional diverse sources of data to train models for visual robotic control.
     highlighted: true
 
@@ -445,7 +449,7 @@ papers:
       - name: Kostas Daniilidis
         href: http://www.cis.upenn.edu/~kostas
       - name: Joseph Lim
-        href: http://www-bcf.usc.edu/~limjj/
+        href: https://clvrai.com/web_lim/
       - name: Andrew Jaegle
         href: http://www.drewjaegle.com/
     conference:
@@ -486,8 +490,8 @@ papers:
     links:
       - name: project page & videos
         href: https://daniilidis-group.github.io/learned_action_spaces/
-      - name: paper
-        href: https://openreview.net/pdf?id=SylPMnR9Ym
+      - name: arXiv
+        href: https://arxiv.org/abs/1806.09655
       - name: poster
         href: images/CLASP_poster.pdf
       - name: slides
