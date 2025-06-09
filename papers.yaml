@@ -1,4 +1,27 @@
-papers:
+papers: 
+  - name: ldp
+    title:
+      link: https://arxiv.org/pdf/2504.16925
+      name: "Latent Diffusion Planning for Imitation Learning"
+    authors:
+      - name: Amber Xie
+        href: https://amberxie88.github.io/
+      - me: true
+      - name: Dorsa Sadigh
+        href: https://dorsa.fyi/
+      - name: Chelsea Finn
+        href: https://ai.stanford.edu/~cbfinn/
+    conference:
+      name: International Conference on Machine Learning (ICML)
+      year: 2025 (<oral>spotlight</oral>, 2.6% acceptance rate)
+    links:
+      - name: project page & videos
+        href: https://amberxie88.github.io/ldp/
+      - name: arXiv
+        href: https://arxiv.org/abs/2504.16925
+    description: "LDP is an alternative to diffusion policy that uses diffusion models to plan in a latent space and can leverage suboptimal and action-free data."
+
+
   - name: video2policy
     title:
       link: https://arxiv.org/pdf/2502.09886.pdf
@@ -42,11 +65,13 @@ papers:
       - name: Aviral Kumar
         href: https://aviralkumar2907.github.io/
     conference:
-      name: ArXiv
+      name: International Conference on Machine Learning (ICML)
       year: 2025 </br> ICLR Robot Learning Workshop, 2025 (<oral>oral presentation</oral>) # acceptance rate 15#
     links:
       - name: arXiv
         href: https://arxiv.org/abs/2502.04327
+      - name: poster
+        href: https://people.eecs.berkeley.edu/~oleh/images/qscaled_poster.pdf
       - name: thread
         href: https://x.com/_oleh/status/1889016893140516880
     description: We build empirical models of the data-compute Pareto frontier, optimal resource allocation across data and compute, and hyperparameter dependencies for value-based RL. From small-scale runs, we can extrapolate towards higher data, compute, and performance. 
