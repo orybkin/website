@@ -29,7 +29,7 @@ papers:
         href: https://github.com/prestonfu/model_scaling
       - name: thread
         href: https://x.com/preston_fu/status/1962920781387882841
-    description: We build scaling laws for model size in value-based RL: we provide a theory of overfitting, scaling batch size, and trading off model size against number of updates in a compute-optimal way.
+    description: "We build scaling laws for model size in value-based RL: we provide a theory of overfitting, scaling batch size, and trading off model size against number of updates in a compute-optimal way."
     highlighted: true
 
   - name: ldp
