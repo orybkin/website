@@ -135,7 +135,6 @@ papers:
       - name: talk
         href: https://www.youtube.com/watch?v=2hIYvPT-ytQ
     description: METRA is an unsupervised agent that scales to complex visual environments and diverse skills. It learns skills in a latent space using the temporal distance as a metric.
-    highlighted: true
 
   - name: scaffolder
     title:
@@ -189,7 +188,6 @@ papers:
       - name: colab
         href: https://colab.research.google.com/drive/1mbr8HHjWAhTQHUP2Y-QOgByuOOXBpusD?usp=sharing
     description: PEG uses world models to set exploratory goals that prompt the goal-conditioned policy to reach states with high exploration potential. This enables the agent to explore and solve challenging long-horizon tasks.
-    highlighted: true
 
   - name: cascade
     title:
@@ -414,7 +412,6 @@ papers:
       - name: code
         href: https://github.com/orybkin/video-gcp
     description: Using hierarchical goal-conditioned predictive models, we scale to very long horizon prediction of more than 500 frames. The model is also useful for hierarchical visual planning and long-horizon control.
-    highlighted: true
 
   - name: SSA
     title:
