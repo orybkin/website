@@ -1,4 +1,37 @@
 papers: 
+  - name: nxsigma
+    title:
+      link: https://arxiv.org/pdf/2508.14881
+      name: "Compute-Optimal Scaling for Value-Based Deep RL"
+    authors:
+      - name: Preston Fu
+        href: https://www.prestonfu.com/
+        star: true
+      - me: true
+        star: true
+      - name: Zhiyuan Zhou
+        href: https://zhouzypaul.github.io/
+      - name: Michal Nauman
+        href: https://scholar.google.com/citations?user=GnEVRtQAAAAJ&hl=en
+      - name: Pieter Abbeel
+        href: https://people.eecs.berkeley.edu/~pabbeel/
+      - name: Sergey Levine
+        href: https://people.eecs.berkeley.edu/~svlevine/
+      - name: Aviral Kumar
+        href: https://aviralkumar2907.github.io/
+    conference:
+      name: Neural Information Processing Systems (NeurIPS)
+      year: 2025
+    links:
+      - name: arXiv
+        href: https://arxiv.org/abs/2508.14881
+      - name: code
+        href: https://github.com/prestonfu/model_scaling
+      - name: thread
+        href: https://x.com/preston_fu/status/1962920781387882841
+    description: We build scaling laws for model size in value-based RL: we provide a theory of overfitting, scaling batch size, and trading off model size against number of updates in a compute-optimal way.
+    highlighted: true
+
   - name: ldp
     title:
       link: https://arxiv.org/pdf/2504.16925
@@ -72,6 +105,8 @@ papers:
         href: https://arxiv.org/abs/2502.04327
       - name: poster
         href: https://people.eecs.berkeley.edu/~oleh/images/qscaled_poster.pdf
+      - name: code
+        href: https://github.com/prestonfu/qscaled
       - name: thread
         href: https://x.com/_oleh/status/1889016893140516880
     description: We build empirical models of the data-compute Pareto frontier, optimal resource allocation across data and compute, and hyperparameter dependencies for value-based RL. From small-scale runs, we can extrapolate towards higher data, compute, and performance. 
